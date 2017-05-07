@@ -1,0 +1,822 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE0F1EBF69DC00F51F59 /* AppDelegate.swift */; };
+		6E10BE121EBF69DC00F51F59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE111EBF69DC00F51F59 /* ViewController.swift */; };
+		6E10BE151EBF69DC00F51F59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE131EBF69DC00F51F59 /* Main.storyboard */; };
+		6E10BE171EBF69DC00F51F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE161EBF69DC00F51F59 /* Assets.xcassets */; };
+		6E10BE1A1EBF69DC00F51F59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE181EBF69DC00F51F59 /* LaunchScreen.storyboard */; };
+		6E10BE251EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE241EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift */; };
+		6E10BE301EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE2F1EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift */; };
+		6E10BE351EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6E10BE341EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app */; };
+		6E10BE3B1EBF69DC00F51F59 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE391EBF69DC00F51F59 /* Interface.storyboard */; };
+		6E10BE3D1EBF69DC00F51F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE3C1EBF69DC00F51F59 /* Assets.xcassets */; };
+		6E10BE441EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6E10BE4B1EBF69DC00F51F59 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE4A1EBF69DC00F51F59 /* InterfaceController.swift */; };
+		6E10BE4D1EBF69DC00F51F59 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE4C1EBF69DC00F51F59 /* ExtensionDelegate.swift */; };
+		6E10BE4F1EBF69DC00F51F59 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE4E1EBF69DC00F51F59 /* NotificationController.swift */; };
+		6E10BE511EBF69DC00F51F59 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE501EBF69DC00F51F59 /* ComplicationController.swift */; };
+		6E10BE531EBF69DC00F51F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE521EBF69DC00F51F59 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E10BE211EBF69DC00F51F59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E10BE041EBF69DC00F51F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E10BE0B1EBF69DC00F51F59;
+			remoteInfo = "Fiscal Year Calendar";
+		};
+		6E10BE2C1EBF69DC00F51F59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E10BE041EBF69DC00F51F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E10BE0B1EBF69DC00F51F59;
+			remoteInfo = "Fiscal Year Calendar";
+		};
+		6E10BE361EBF69DC00F51F59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E10BE041EBF69DC00F51F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E10BE331EBF69DC00F51F59;
+			remoteInfo = "Fiscal Year Calendar WatchKit App";
+		};
+		6E10BE451EBF69DC00F51F59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E10BE041EBF69DC00F51F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E10BE421EBF69DC00F51F59;
+			remoteInfo = "Fiscal Year Calendar WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6E10BE5A1EBF69DC00F51F59 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6E10BE441EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE5E1EBF69DC00F51F59 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6E10BE351EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6E10BE0C1EBF69DC00F51F59 /* Fiscal Year Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fiscal Year Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E10BE0F1EBF69DC00F51F59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E10BE111EBF69DC00F51F59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E10BE141EBF69DC00F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E10BE161EBF69DC00F51F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E10BE191EBF69DC00F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E10BE1B1EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E10BE201EBF69DC00F51F59 /* Fiscal Year CalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fiscal Year CalendarTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E10BE241EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fiscal_Year_CalendarTests.swift; sourceTree = "<group>"; };
+		6E10BE261EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E10BE2B1EBF69DC00F51F59 /* Fiscal Year CalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fiscal Year CalendarUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E10BE2F1EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fiscal_Year_CalendarUITests.swift; sourceTree = "<group>"; };
+		6E10BE311EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E10BE341EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fiscal Year Calendar WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E10BE3A1EBF69DC00F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6E10BE3C1EBF69DC00F51F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E10BE3E1EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Fiscal Year Calendar WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E10BE491EBF69DC00F51F59 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		6E10BE4A1EBF69DC00F51F59 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		6E10BE4C1EBF69DC00F51F59 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		6E10BE4E1EBF69DC00F51F59 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6E10BE501EBF69DC00F51F59 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		6E10BE521EBF69DC00F51F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E10BE541EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E10BE091EBF69DC00F51F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE1D1EBF69DC00F51F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE281EBF69DC00F51F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE401EBF69DC00F51F59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E10BE031EBF69DC00F51F59 = {
+			isa = PBXGroup;
+			children = (
+				6E10BE0E1EBF69DC00F51F59 /* Fiscal Year Calendar */,
+				6E10BE231EBF69DC00F51F59 /* Fiscal Year CalendarTests */,
+				6E10BE2E1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */,
+				6E10BE381EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */,
+				6E10BE471EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */,
+				6E10BE0D1EBF69DC00F51F59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E10BE0D1EBF69DC00F51F59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE0C1EBF69DC00F51F59 /* Fiscal Year Calendar.app */,
+				6E10BE201EBF69DC00F51F59 /* Fiscal Year CalendarTests.xctest */,
+				6E10BE2B1EBF69DC00F51F59 /* Fiscal Year CalendarUITests.xctest */,
+				6E10BE341EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app */,
+				6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E10BE0E1EBF69DC00F51F59 /* Fiscal Year Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE0F1EBF69DC00F51F59 /* AppDelegate.swift */,
+				6E10BE111EBF69DC00F51F59 /* ViewController.swift */,
+				6E10BE131EBF69DC00F51F59 /* Main.storyboard */,
+				6E10BE161EBF69DC00F51F59 /* Assets.xcassets */,
+				6E10BE181EBF69DC00F51F59 /* LaunchScreen.storyboard */,
+				6E10BE1B1EBF69DC00F51F59 /* Info.plist */,
+			);
+			path = "Fiscal Year Calendar";
+			sourceTree = "<group>";
+		};
+		6E10BE231EBF69DC00F51F59 /* Fiscal Year CalendarTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE241EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift */,
+				6E10BE261EBF69DC00F51F59 /* Info.plist */,
+			);
+			path = "Fiscal Year CalendarTests";
+			sourceTree = "<group>";
+		};
+		6E10BE2E1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE2F1EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift */,
+				6E10BE311EBF69DC00F51F59 /* Info.plist */,
+			);
+			path = "Fiscal Year CalendarUITests";
+			sourceTree = "<group>";
+		};
+		6E10BE381EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE391EBF69DC00F51F59 /* Interface.storyboard */,
+				6E10BE3C1EBF69DC00F51F59 /* Assets.xcassets */,
+				6E10BE3E1EBF69DC00F51F59 /* Info.plist */,
+			);
+			path = "Fiscal Year Calendar WatchKit App";
+			sourceTree = "<group>";
+		};
+		6E10BE471EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE4A1EBF69DC00F51F59 /* InterfaceController.swift */,
+				6E10BE4C1EBF69DC00F51F59 /* ExtensionDelegate.swift */,
+				6E10BE4E1EBF69DC00F51F59 /* NotificationController.swift */,
+				6E10BE501EBF69DC00F51F59 /* ComplicationController.swift */,
+				6E10BE521EBF69DC00F51F59 /* Assets.xcassets */,
+				6E10BE541EBF69DC00F51F59 /* Info.plist */,
+				6E10BE481EBF69DC00F51F59 /* Supporting Files */,
+			);
+			path = "Fiscal Year Calendar WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		6E10BE481EBF69DC00F51F59 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E10BE491EBF69DC00F51F59 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E10BE0B1EBF69DC00F51F59 /* Fiscal Year Calendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E10BE5F1EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar" */;
+			buildPhases = (
+				6E10BE081EBF69DC00F51F59 /* Sources */,
+				6E10BE091EBF69DC00F51F59 /* Frameworks */,
+				6E10BE0A1EBF69DC00F51F59 /* Resources */,
+				6E10BE5E1EBF69DC00F51F59 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E10BE371EBF69DC00F51F59 /* PBXTargetDependency */,
+			);
+			name = "Fiscal Year Calendar";
+			productName = "Fiscal Year Calendar";
+			productReference = 6E10BE0C1EBF69DC00F51F59 /* Fiscal Year Calendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E10BE1F1EBF69DC00F51F59 /* Fiscal Year CalendarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E10BE621EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year CalendarTests" */;
+			buildPhases = (
+				6E10BE1C1EBF69DC00F51F59 /* Sources */,
+				6E10BE1D1EBF69DC00F51F59 /* Frameworks */,
+				6E10BE1E1EBF69DC00F51F59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E10BE221EBF69DC00F51F59 /* PBXTargetDependency */,
+			);
+			name = "Fiscal Year CalendarTests";
+			productName = "Fiscal Year CalendarTests";
+			productReference = 6E10BE201EBF69DC00F51F59 /* Fiscal Year CalendarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E10BE2A1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E10BE651EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year CalendarUITests" */;
+			buildPhases = (
+				6E10BE271EBF69DC00F51F59 /* Sources */,
+				6E10BE281EBF69DC00F51F59 /* Frameworks */,
+				6E10BE291EBF69DC00F51F59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E10BE2D1EBF69DC00F51F59 /* PBXTargetDependency */,
+			);
+			name = "Fiscal Year CalendarUITests";
+			productName = "Fiscal Year CalendarUITests";
+			productReference = 6E10BE2B1EBF69DC00F51F59 /* Fiscal Year CalendarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6E10BE331EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E10BE5B1EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar WatchKit App" */;
+			buildPhases = (
+				6E10BE321EBF69DC00F51F59 /* Resources */,
+				6E10BE5A1EBF69DC00F51F59 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E10BE461EBF69DC00F51F59 /* PBXTargetDependency */,
+			);
+			name = "Fiscal Year Calendar WatchKit App";
+			productName = "Fiscal Year Calendar WatchKit App";
+			productReference = 6E10BE341EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		6E10BE421EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E10BE571EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar WatchKit Extension" */;
+			buildPhases = (
+				6E10BE3F1EBF69DC00F51F59 /* Sources */,
+				6E10BE401EBF69DC00F51F59 /* Frameworks */,
+				6E10BE411EBF69DC00F51F59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fiscal Year Calendar WatchKit Extension";
+			productName = "Fiscal Year Calendar WatchKit Extension";
+			productReference = 6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E10BE041EBF69DC00F51F59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Stephen Ewell";
+				TargetAttributes = {
+					6E10BE0B1EBF69DC00F51F59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+					};
+					6E10BE1F1EBF69DC00F51F59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E10BE0B1EBF69DC00F51F59;
+					};
+					6E10BE2A1EBF69DC00F51F59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E10BE0B1EBF69DC00F51F59;
+					};
+					6E10BE331EBF69DC00F51F59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+					};
+					6E10BE421EBF69DC00F51F59 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6E10BE071EBF69DC00F51F59 /* Build configuration list for PBXProject "Fiscal Year Calendar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E10BE031EBF69DC00F51F59;
+			productRefGroup = 6E10BE0D1EBF69DC00F51F59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E10BE0B1EBF69DC00F51F59 /* Fiscal Year Calendar */,
+				6E10BE1F1EBF69DC00F51F59 /* Fiscal Year CalendarTests */,
+				6E10BE2A1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */,
+				6E10BE331EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */,
+				6E10BE421EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E10BE0A1EBF69DC00F51F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE1A1EBF69DC00F51F59 /* LaunchScreen.storyboard in Resources */,
+				6E10BE171EBF69DC00F51F59 /* Assets.xcassets in Resources */,
+				6E10BE151EBF69DC00F51F59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE1E1EBF69DC00F51F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE291EBF69DC00F51F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE321EBF69DC00F51F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE3D1EBF69DC00F51F59 /* Assets.xcassets in Resources */,
+				6E10BE3B1EBF69DC00F51F59 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE411EBF69DC00F51F59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE531EBF69DC00F51F59 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E10BE081EBF69DC00F51F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE121EBF69DC00F51F59 /* ViewController.swift in Sources */,
+				6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE1C1EBF69DC00F51F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE251EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE271EBF69DC00F51F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE301EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E10BE3F1EBF69DC00F51F59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E10BE4F1EBF69DC00F51F59 /* NotificationController.swift in Sources */,
+				6E10BE511EBF69DC00F51F59 /* ComplicationController.swift in Sources */,
+				6E10BE4D1EBF69DC00F51F59 /* ExtensionDelegate.swift in Sources */,
+				6E10BE4B1EBF69DC00F51F59 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E10BE221EBF69DC00F51F59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E10BE0B1EBF69DC00F51F59 /* Fiscal Year Calendar */;
+			targetProxy = 6E10BE211EBF69DC00F51F59 /* PBXContainerItemProxy */;
+		};
+		6E10BE2D1EBF69DC00F51F59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E10BE0B1EBF69DC00F51F59 /* Fiscal Year Calendar */;
+			targetProxy = 6E10BE2C1EBF69DC00F51F59 /* PBXContainerItemProxy */;
+		};
+		6E10BE371EBF69DC00F51F59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E10BE331EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */;
+			targetProxy = 6E10BE361EBF69DC00F51F59 /* PBXContainerItemProxy */;
+		};
+		6E10BE461EBF69DC00F51F59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E10BE421EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */;
+			targetProxy = 6E10BE451EBF69DC00F51F59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6E10BE131EBF69DC00F51F59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E10BE141EBF69DC00F51F59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E10BE181EBF69DC00F51F59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E10BE191EBF69DC00F51F59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6E10BE391EBF69DC00F51F59 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E10BE3A1EBF69DC00F51F59 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E10BE551EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E10BE561EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E10BE581EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year Calendar WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		6E10BE591EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year Calendar WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		6E10BE5C1EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				IBSC_MODULE = Fiscal_Year_Calendar_WatchKit_Extension;
+				INFOPLIST_FILE = "Fiscal Year Calendar WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		6E10BE5D1EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				IBSC_MODULE = Fiscal_Year_Calendar_WatchKit_Extension;
+				INFOPLIST_FILE = "Fiscal Year Calendar WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		6E10BE601EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year Calendar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6E10BE611EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year Calendar/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6E10BE631EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year CalendarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-CalendarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fiscal Year Calendar.app/Fiscal Year Calendar";
+			};
+			name = Debug;
+		};
+		6E10BE641EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year CalendarTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-CalendarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fiscal Year Calendar.app/Fiscal Year Calendar";
+			};
+			name = Release;
+		};
+		6E10BE661EBF69DC00F51F59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year CalendarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-CalendarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Fiscal Year Calendar";
+			};
+			name = Debug;
+		};
+		6E10BE671EBF69DC00F51F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Year CalendarUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-CalendarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Fiscal Year Calendar";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E10BE071EBF69DC00F51F59 /* Build configuration list for PBXProject "Fiscal Year Calendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE551EBF69DC00F51F59 /* Debug */,
+				6E10BE561EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E10BE571EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE581EBF69DC00F51F59 /* Debug */,
+				6E10BE591EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6E10BE5B1EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE5C1EBF69DC00F51F59 /* Debug */,
+				6E10BE5D1EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6E10BE5F1EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year Calendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE601EBF69DC00F51F59 /* Debug */,
+				6E10BE611EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6E10BE621EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year CalendarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE631EBF69DC00F51F59 /* Debug */,
+				6E10BE641EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6E10BE651EBF69DC00F51F59 /* Build configuration list for PBXNativeTarget "Fiscal Year CalendarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E10BE661EBF69DC00F51F59 /* Debug */,
+				6E10BE671EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E10BE041EBF69DC00F51F59 /* Project object */;
+}
