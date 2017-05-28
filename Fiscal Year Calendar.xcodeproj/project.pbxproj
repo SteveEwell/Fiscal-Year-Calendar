@@ -38,8 +38,8 @@
 		6E10BE941EBF789500F51F59 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE921EBF789500F51F59 /* Interface.storyboard */; };
 		6E5D0A7E1ED08350001B3C74 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */; };
 		6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6270A61ED9DDB200DAE00D /* Utilities.swift */; };
-		6E816DF81EDB1113000BC14C /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E816DF71EDB1113000BC14C /* CWHoliday.swift */; };
-		6E816DF91EDB1113000BC14C /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E816DF71EDB1113000BC14C /* CWHoliday.swift */; };
+		6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
+		6E9A66651EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +134,7 @@
 		6E10BE931EBF789500F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		6E6270A61ED9DDB200DAE00D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		6E816DF71EDB1113000BC14C /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWHoliday.swift; sourceTree = "<group>"; };
+		6E9A66631EDB532900FB954B /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWHoliday.swift; path = "Fiscal Year Calendar/CWHoliday/CWHoliday.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +286,7 @@
 		6E816DF61EDB10E5000BC14C /* CWHoliday */ = {
 			isa = PBXGroup;
 			children = (
-				6E816DF71EDB1113000BC14C /* CWHoliday.swift */,
+				6E9A66631EDB532900FB954B /* CWHoliday.swift */,
 			);
 			name = CWHoliday;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 				6E10BE871EBF702D00F51F59 /* CWDayViewCell.swift in Sources */,
 				6E10BE721EBF6E6200F51F59 /* CWFiscalPeriod.swift in Sources */,
 				6E10BE701EBF6E6200F51F59 /* CWFiscalDateFormatter.swift in Sources */,
-				6E816DF81EDB1113000BC14C /* CWHoliday.swift in Sources */,
+				6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */,
 				6E10BE711EBF6E6200F51F59 /* CWFiscalDateUtilities.swift in Sources */,
 				6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */,
 				6E10BE881EBF702D00F51F59 /* CWPeriodSectionHeader.swift in Sources */,
@@ -532,7 +532,7 @@
 				6E10BE4F1EBF69DC00F51F59 /* NotificationController.swift in Sources */,
 				6E5D0A7E1ED08350001B3C74 /* DataProvider.swift in Sources */,
 				6E10BE511EBF69DC00F51F59 /* ComplicationController.swift in Sources */,
-				6E816DF91EDB1113000BC14C /* CWHoliday.swift in Sources */,
+				6E9A66651EDB532900FB954B /* CWHoliday.swift in Sources */,
 				6E10BE8C1EBF778C00F51F59 /* CWFiscalDateFormatter.swift in Sources */,
 				6E10BE4D1EBF69DC00F51F59 /* ExtensionDelegate.swift in Sources */,
 				6E10BE8B1EBF778900F51F59 /* CWFiscalDate.swift in Sources */,
