@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Fiscal Year Calendar WatchKit Extension</string>
+	<string>Fiscal Year Calendar</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -25,12 +25,8 @@
 	<key>CLKComplicationSupportedFamilies</key>
 	<array>
 		<string>CLKComplicationFamilyModularSmall</string>
-		<string>CLKComplicationFamilyModularLarge</string>
-		<string>CLKComplicationFamilyUtilitarianSmall</string>
-		<string>CLKComplicationFamilyUtilitarianSmallFlat</string>
-		<string>CLKComplicationFamilyUtilitarianLarge</string>
 		<string>CLKComplicationFamilyCircularSmall</string>
-		<string>CLKComplicationFamilyExtraLarge</string>
+		<string>CLKComplicationFamilyModularLarge</string>
 	</array>
 	<key>NSExtension</key>
 	<dict>

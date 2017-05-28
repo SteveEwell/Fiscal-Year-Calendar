@@ -1,39 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Fiscal Date-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
-            <objects>
-                <notificationController id="YCC-NB-fut">
+                <controller title="Fiscal Date" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Fiscal_Year_Calendar_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                        <group width="1" alignment="left" id="prm-N5-Me1">
+                            <items>
+                                <label alignment="left" text="Today" id="Idq-we-zlx">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="18"/>
+                                </label>
+                            </items>
+                            <edgeInsets key="margins" left="4" right="0.0" top="3" bottom="0.0"/>
+                        </group>
+                        <group alignment="left" id="unq-xd-TEm">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" radius="6" spacing="4" id="EmG-Cq-l5D">
+                                    <items>
+                                        <group width="1" alignment="left" spacing="0.0" id="wEV-r7-GPV">
+                                            <items>
+                                                <label alignment="left" text="Date" id="ekZ-5T-Nk1">
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                                </label>
+                                                <dateLabel alignment="right" format="M/d/yy" id="4iK-Gc-fUn">
+                                                    <color key="textColor" red="0.0" green="0.60118545553044567" blue="0.70249100130890052" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                                </dateLabel>
+                                            </items>
+                                            <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                        </group>
+                                        <separator alignment="left" id="4cw-y8-o98">
+                                            <color key="color" red="0.88315316268432975" green="0.88624465106062966" blue="0.8967400196335078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </separator>
+                                        <group width="1" alignment="left" id="ERa-W6-fqO">
+                                            <items>
+                                                <label alignment="left" text="Year" id="vw6-hB-SNv">
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                                </label>
+                                                <label alignment="right" text="2010" id="quF-2g-bVW">
+                                                    <color key="textColor" red="0.0" green="0.60118545550000002" blue="0.70249100129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                                </label>
+                                            </items>
+                                            <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                        </group>
+                                        <separator alignment="left" id="Q3N-QR-kEh">
+                                            <color key="color" red="0.88315316269999999" green="0.88624465109999995" blue="0.89674001960000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </separator>
+                                        <group width="1" alignment="left" id="VPQ-aD-ntK">
+                                            <items>
+                                                <label alignment="left" text="Period" id="iMJ-Kj-cxx">
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                                </label>
+                                                <label alignment="right" text="10" id="F6j-Iu-HaV">
+                                                    <color key="textColor" red="0.0" green="0.60118545550000002" blue="0.70249100129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                                </label>
+                                            </items>
+                                            <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                        </group>
+                                        <separator alignment="left" id="dQS-RO-OS3">
+                                            <color key="color" red="0.88315316269999999" green="0.88624465109999995" blue="0.89674001960000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </separator>
+                                        <group width="1" alignment="left" id="H8d-n2-lBT">
+                                            <items>
+                                                <label alignment="left" text="Week" id="Xuy-4J-D1q">
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                                </label>
+                                                <label alignment="right" text="4" id="ITO-hZ-HXH">
+                                                    <color key="textColor" red="0.0" green="0.60118545550000002" blue="0.70249100129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="font" type="system" weight="medium" pointSize="20"/>
+                                                </label>
+                                            </items>
+                                            <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                        </group>
+                                    </items>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="4"/>
+                                    <variation key="device=watch38mm" spacing="1"/>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="2" right="2" top="2" bottom="2"/>
+                        </group>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
                     <connections>
-                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
-                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <outlet property="fiscalPeriod" destination="F6j-Iu-HaV" id="B02-8f-eaJ"/>
+                        <outlet property="fiscalWeek" destination="ITO-hZ-HXH" id="LQM-M8-SUA"/>
+                        <outlet property="fiscalYear" destination="quF-2g-bVW" id="1QO-nl-a8P"/>
                     </connections>
-                </notificationController>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
-        </scene>
-        <!--Notification Controller-->
-        <scene sceneID="ZPc-GJ-vnh">
-            <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="164" y="217"/>
         </scene>
     </scenes>
 </document>

@@ -11,20 +11,27 @@ import Foundation
 
 
 class InterfaceController: WKInterfaceController {
+    
+    @IBOutlet var fiscalYear: WKInterfaceLabel!
+    @IBOutlet var fiscalPeriod: WKInterfaceLabel!
+    @IBOutlet var fiscalWeek: WKInterfaceLabel!
+    var dateNow: CWFiscalDate!
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        // Configure interface objects here.
+        self.dateNow = CWFiscalDate()
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        self.dateNow = CWFiscalDate()
+        self.fiscalYear.setText(String(self.dateNow.fiscalYear))
+        self.fiscalPeriod.setText(String(self.dateNow.period))
+        self.fiscalWeek.setText(String(self.dateNow.week))
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 

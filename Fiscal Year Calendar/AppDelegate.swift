@@ -34,7 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let nav = self.window?.rootViewController as! UINavigationController
+        let calVC = nav.topViewController as! CWCalendarViewController
+        
+        if let fiscalDate = calVC.todayFiscalDate {
+            let date = Date()
+            let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+            let stored = cal.dateComponents([.day], from: fiscalDate.storedDate)
+            let current = cal.dateComponents([.day], from: date)
+            
+            if (current.day! - stored.day! != 0) {
+                calVC.refreshCalander()
+            }
+        }
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

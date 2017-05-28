@@ -11,6 +11,66 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    let dataProvider = DataProvider()
+    
+    // MARK: - Setup Template
+    
+    func templateCircularSmallRingForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateCircularSmallRingText()
+        template.textProvider = CLKSimpleTextProvider(text: data.periodAsString)
+        template.fillFraction = data.fraction
+        template.ringStyle = .closed
+        return template
+    }
+    
+    func placeholderTemplateCircularSmallRing() -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateCircularSmallRingText()
+        template.textProvider = CLKSimpleTextProvider(text: "--")
+        template.fillFraction = 1.0
+        template.ringStyle = .closed
+        return template
+    }
+    
+    func templateModularSmallForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateModularSmallColumnsText()
+        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "PR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "WK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: data.periodAsString)
+        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: data.weekAsString)
+        return template
+    }
+    
+    func placeholderTemplateModularSmall() -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateModularSmallColumnsText()
+        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "PR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "WK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        return template
+    }
+    
+    func templateModularLargeForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateModularLargeColumns()
+        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "YEAR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "PERIOD")
+        template.row3Column1TextProvider = CLKSimpleTextProvider.init(text: "WEEK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: data.yearAsString)
+        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: data.periodAsString)
+        template.row3Column2TextProvider = CLKSimpleTextProvider.init(text: data.weekAsString)
+        return template
+    }
+    
+    func placeholderTemplateModularLarge() -> CLKComplicationTemplate {
+        let template = CLKComplicationTemplateModularLargeColumns()
+        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "YEAR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "PERIOD")
+        template.row3Column1TextProvider = CLKSimpleTextProvider.init(text: "WEEK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        template.row3Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        return template
+    }
+    
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -18,11 +78,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
+        handler(dataProvider.thirtyDaysData().first!.storedDate)
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(nil)
+        handler(dataProvider.thirtyDaysData().last!.storedDate)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -31,26 +91,82 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Population
     
+    func timelineEntryForData(_ data: CWFiscalDate, complication: CLKComplication) -> CLKComplicationTimelineEntry {
+        var template: CLKComplicationTemplate?
+        switch complication.family {
+        case .modularSmall:
+            template = templateModularSmallForData(data)
+        case .modularLarge:
+            template = templateModularLargeForData(data)
+        case .circularSmall:
+            template = templateCircularSmallRingForData(data)
+        default:
+            template = nil
+        }
+        return CLKComplicationTimelineEntry(date: data.storedDate, complicationTemplate: template!)
+    }
+    
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        if let data = dataProvider.thirtyDaysData().dataForNow() {
+            handler(timelineEntryForData(data, complication: complication))
+        } else {
+            let dt = Date()
+            handler(CLKComplicationTimelineEntry(date: dt, complicationTemplate: getPlaceholder(for: complication)))
+        }
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries prior to the given date
-        handler(nil)
+        let entries = dataProvider.thirtyDaysData().filter{
+            date.compare($0.storedDate as Date) == .orderedDescending
+            }.map{
+                self.timelineEntryForData($0, complication: complication)
+        }
+        handler(entries)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries after to the given date
-        handler(nil)
+        let entries = dataProvider.thirtyDaysData().filter{
+            date.compare($0.storedDate as Date) == .orderedAscending
+            }.map{
+                self.timelineEntryForData($0, complication: complication)
+        }
+        handler(entries)
+    }
+    
+    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
+        handler(Date.endOfToday());
     }
     
     // MARK: - Placeholder Templates
     
-    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+    func getPlaceholder(for complication: CLKComplication) -> CLKComplicationTemplate {
+        var template: CLKComplicationTemplate?
+        switch complication.family {
+        case .modularSmall:
+            template = placeholderTemplateModularSmall()
+        case .modularLarge:
+            template = placeholderTemplateModularLarge()
+        case .circularSmall:
+            template = placeholderTemplateCircularSmallRing()
+        default:
+            template = nil
+        }
+        return template!
     }
     
+    
+    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+        var template: CLKComplicationTemplate?
+        switch complication.family {
+        case .modularSmall:
+            template = placeholderTemplateModularSmall()
+        case .modularLarge:
+            template = placeholderTemplateModularLarge()
+        case .circularSmall:
+            template = placeholderTemplateCircularSmallRing()
+        default:
+            template = nil
+        }
+        handler(template)
+    }
 }

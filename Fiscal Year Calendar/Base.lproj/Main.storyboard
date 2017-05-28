@@ -1,26 +1,211 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oF5-lx-t20">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="MqF-8N-Gjk">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <navigationController toolbarHidden="NO" id="oF5-lx-t20" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LFQ-2d-QjV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jdJ-ze-cAm">
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="lgp-Kx-O44" kind="relationship" relationship="rootViewController" id="AI6-jD-LLp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPC-L4-N72" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="425"/>
+        </scene>
+        <!--FY 20XX-->
+        <scene sceneID="bcg-i5-GYT">
+            <objects>
+                <collectionViewController clearsSelectionOnViewWillAppear="NO" id="lgp-Kx-O44" customClass="CWCalendarViewController" customModule="Fiscal_Year_Calendar" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" directionalLockEnabled="YES" indicatorStyle="white" dataMode="prototypes" id="EWM-t1-nfc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gTC-Bx-Lsg">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="76"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="mFH-c3-1YJ" customClass="CWDayViewCell" customModule="Fiscal_Year_Calendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="76" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woH-VR-RRZ">
+                                            <rect key="frame" x="14" y="8" width="23" height="23"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES" updatesFrequently="YES"/>
+                                            </accessibility>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                            </variation>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h91-FL-jM4">
+                                            <rect key="frame" x="0.0" y="1" width="50" height="1"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES" updatesFrequently="YES"/>
+                                            </accessibility>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="z18-xq-x3P"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zys-ka-1mC" userLabel="Holiday View">
+                                            <rect key="frame" x="13.666666666666664" y="37" width="23" height="7"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" notEnabled="YES" updatesFrequently="YES"/>
+                                            </accessibility>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="7" id="9VS-iu-wZw"/>
+                                                <constraint firstAttribute="width" constant="23" id="SCy-4m-NSu"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="top" secondItem="mFH-c3-1YJ" secondAttribute="topMargin" id="2bW-nO-V4p"/>
+                                    <constraint firstItem="zys-ka-1mC" firstAttribute="top" secondItem="woH-VR-RRZ" secondAttribute="bottom" constant="6" id="3DW-zX-Wme"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="top" secondItem="mFH-c3-1YJ" secondAttribute="top" constant="8" id="9fR-Ph-4uQ"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="centerX" secondItem="mFH-c3-1YJ" secondAttribute="centerX" id="BHX-3M-0SU"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="centerX" secondItem="mFH-c3-1YJ" secondAttribute="centerX" priority="250" id="C0b-Lz-HBc"/>
+                                    <constraint firstItem="h91-FL-jM4" firstAttribute="leading" secondItem="mFH-c3-1YJ" secondAttribute="leading" id="CPl-Mp-kiC"/>
+                                    <constraint firstItem="zys-ka-1mC" firstAttribute="centerX" secondItem="mFH-c3-1YJ" secondAttribute="centerX" id="P4A-mQ-fhu"/>
+                                    <constraint firstItem="h91-FL-jM4" firstAttribute="top" secondItem="mFH-c3-1YJ" secondAttribute="top" constant="1" id="QPI-Ps-RfD"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="centerX" secondItem="mFH-c3-1YJ" secondAttribute="centerX" id="YXZ-MT-23E"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="centerX" secondItem="mFH-c3-1YJ" secondAttribute="centerX" id="a4G-Ck-b4V"/>
+                                    <constraint firstAttribute="trailing" secondItem="h91-FL-jM4" secondAttribute="trailing" id="bZB-Qi-Hdv"/>
+                                    <constraint firstItem="woH-VR-RRZ" firstAttribute="top" secondItem="h91-FL-jM4" secondAttribute="bottom" priority="250" constant="8" id="kXz-Y8-Mo3"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zys-ka-1mC" secondAttribute="bottom" constant="6" id="zCK-Pw-5dJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2bW-nO-V4p"/>
+                                        <exclude reference="9fR-Ph-4uQ"/>
+                                        <exclude reference="BHX-3M-0SU"/>
+                                        <exclude reference="YXZ-MT-23E"/>
+                                        <exclude reference="a4G-Ck-b4V"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2bW-nO-V4p"/>
+                                        <include reference="a4G-Ck-b4V"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="9fR-Ph-4uQ"/>
+                                        <include reference="BHX-3M-0SU"/>
+                                        <include reference="YXZ-MT-23E"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dateLabel" destination="woH-VR-RRZ" id="fSm-fE-CTV"/>
+                                    <outlet property="holidayView" destination="zys-ka-1mC" id="H6A-iA-vbQ"/>
+                                    <outlet property="topView" destination="h91-FL-jM4" id="C55-4v-5Ty"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PeriodHeader" id="umW-M6-Lit" customClass="CWPeriodSectionHeader" customModule="Fiscal_Year_Calendar" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period 13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbD-EC-7hZ">
+                                    <rect key="frame" x="8" y="13" width="94" height="25.666666666666664"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="94" id="XnM-hv-6eB"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAh-wv-HFL">
+                                    <rect key="frame" x="7.9999999999999964" y="46.666666666666664" width="51.666666666666657" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMG-8A-s8D">
+                                    <rect key="frame" x="348" y="46" width="58" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="gbD-EC-7hZ" firstAttribute="top" secondItem="umW-M6-Lit" secondAttribute="top" constant="13" id="C3f-WS-pSP"/>
+                                <constraint firstItem="iMG-8A-s8D" firstAttribute="top" secondItem="umW-M6-Lit" secondAttribute="top" constant="46" id="GU5-l9-O1r"/>
+                                <constraint firstItem="gbD-EC-7hZ" firstAttribute="leading" secondItem="umW-M6-Lit" secondAttribute="leading" constant="8" id="M8Y-Cu-iN7"/>
+                                <constraint firstItem="jAh-wv-HFL" firstAttribute="leading" secondItem="umW-M6-Lit" secondAttribute="leading" constant="8" id="SeE-QN-024"/>
+                                <constraint firstItem="jAh-wv-HFL" firstAttribute="top" secondItem="gbD-EC-7hZ" secondAttribute="bottom" constant="8" id="lfy-hb-L3P"/>
+                                <constraint firstAttribute="trailing" secondItem="iMG-8A-s8D" secondAttribute="trailing" constant="8" id="ls6-IN-Xxs"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="endLabel" destination="iMG-8A-s8D" id="RqN-AP-fmu"/>
+                                <outlet property="sectionLabel" destination="gbD-EC-7hZ" id="0Jn-8y-vZc"/>
+                                <outlet property="startLabel" destination="jAh-wv-HFL" id="EnX-fM-9dl"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="lgp-Kx-O44" id="pvP-bb-8sp"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems>
+                        <barButtonItem title="Today" id="GeJ-ae-h5B">
+                            <connections>
+                                <action selector="scrollToTodayButton" destination="lgp-Kx-O44" id="vnG-81-3tk"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="FY 20XX" id="sJ3-wR-XCB">
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="Y1s-Ne-8kT">
+                            <connections>
+                                <action selector="prevFiscalYear" destination="lgp-Kx-O44" id="vJf-st-pnK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Kis-Mg-eAb">
+                            <connections>
+                                <action selector="nextFiscalYear" destination="lgp-Kx-O44" id="J5L-52-KpH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="EWM-t1-nfc" id="vCC-tQ-3wF"/>
+                        <outlet property="prevButton" destination="Y1s-Ne-8kT" id="hXf-3f-tF1"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u5x-vY-Qqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1124.6376811594205" y="413.31521739130437"/>
         </scene>
     </scenes>
 </document>
