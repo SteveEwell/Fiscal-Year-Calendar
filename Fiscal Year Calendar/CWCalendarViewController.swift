@@ -29,6 +29,7 @@ class CWCalendarViewController: UICollectionViewController {
         self.todayNormalizedDate = util.getNormalizedDate(today)
         self.holidays = CWHolidays(fiscalYear: todayFiscalDate.fiscalYear, country: .US)
         
+        // Set up the days of the week header.
         self.collectionView?.contentInset.top = 44
         let navBarFrame = self.navigationController!.navigationBar.frame
         let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
@@ -68,7 +69,7 @@ class CWCalendarViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CWDayViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CWDayViewCell
         cell.topView.backgroundColor = UIColor.gray
         let dateFormatter = DateFormatter()
         let fiscalDate = self.dateForIndexPath(indexPath)
@@ -80,10 +81,18 @@ class CWCalendarViewController: UICollectionViewController {
             cell.dateLabel.textColor = UIColor.black
         }
         
-        self.setUpTopLineView(cell:&cell, date: dateForIndexPath(indexPath))
+        cell.clearCircles()
+        cell.setUpTopLineView(date: fiscalDate)
+        
+        for d in self.holidays.holidays {
+            if date == d.date {
+                cell.drawCircle()
+                break
+            }
+        }
         
         dateFormatter.setLocalizedDateFormatFromTemplate("d")
-        cell.dateLabel.text = dateFormatter.string(from: dateForIndexPath(indexPath).storedDate as Date)
+        cell.dateLabel.text = dateFormatter.string(from: dateForIndexPath(indexPath).storedDate)
         
         return cell
     }
@@ -95,11 +104,11 @@ class CWCalendarViewController: UICollectionViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
         let lastDay = periodAtIndex.dates.count - 1
-        let startMonth = formatter.string(from: periodAtIndex.dates[0].storedDate as Date)
-        let endMonth = formatter.string(from: periodAtIndex.dates[lastDay].storedDate as Date)
+        let startMonth = formatter.string(from: periodAtIndex.dates[0].storedDate)
+        let endMonth = formatter.string(from: periodAtIndex.dates[lastDay].storedDate)
         formatter.dateFormat = "yyyy"
-        let startYear = formatter.string(from: periodAtIndex.dates[0].storedDate as Date)
-        let endYear = formatter.string(from: periodAtIndex.dates[lastDay].storedDate as Date)
+        let startYear = formatter.string(from: periodAtIndex.dates[0].storedDate)
+        let endYear = formatter.string(from: periodAtIndex.dates[lastDay].storedDate)
         
         
         header.sectionLabel.text = "Period \(periodAtIndex.period)"
@@ -111,40 +120,6 @@ class CWCalendarViewController: UICollectionViewController {
     
     func refreshCalander() {
         self.collectionView?.reloadData()
-    }
-    
-    // MARK: DayViewCell layout
-    func setUpTopLineView(cell: inout CWDayViewCell, date: CWFiscalDate) {
-        // http://uicolor.xyz/#/hex-to-ui
-        // Helpful site for float values from a hex value.
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.month, .day], from: date.storedDate)
-        let month = components.month
-        let monthColor: [UIColor] = [
-                                        UIColor.gray,
-                                        UIColor(red: 0, green: 0.263, blue: 0.345, alpha: 1),
-                                        UIColor(red: 0.122, green: 0.541, blue: 0.439, alpha: 1),
-                                        UIColor(red: 0.745, green: 0.859, blue: 0.224, alpha: 1),
-                                        UIColor(red: 1, green: 0.882, blue: 0.102, alpha: 1),
-                                        UIColor(red: 0.992, green: 0.455, blue: 0, alpha: 1),
-                                        UIColor(red: 0.18, green: 0.035, blue: 0.153, alpha: 1),
-                                        UIColor(red: 1, green: 0.549, blue: 0, alpha: 1),
-                                        UIColor(red: 0.851, green: 0, blue: 0, alpha: 1),
-                                        UIColor(red: 1, green: 0.176, blue: 0, alpha: 1),
-                                        UIColor(red: 0.016, green: 0.459, blue: 0.435, alpha: 1),
-                                        UIColor(red: 0.812, green: 0.29, blue: 0.188, alpha: 1),
-                                        UIColor(red: 0.569, green: 0.067, blue: 0.275, alpha: 1),
-                                    ]
-        
-        cell.topView.backgroundColor = monthColor[month!]
-        cell.clearCircles()
-        
-        for d in self.holidays.holidays {
-            if date.storedDate == d.date {
-                cell.drawCircle()
-                break
-            }
-        }
     }
     
     // MARK: @IBAction

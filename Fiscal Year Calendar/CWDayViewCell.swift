@@ -13,6 +13,31 @@ class CWDayViewCell: UICollectionViewCell {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var holidayView: UIView!
     
+    func setUpTopLineView(date: CWFiscalDate) {
+        // http://uicolor.xyz/#/hex-to-ui
+        // Helpful site for float values from a hex value.
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.month, .day], from: date.storedDate)
+        let month = components.month
+        let monthColor: [UIColor] = [
+            UIColor.gray,
+            UIColor(red: 0, green: 0.263, blue: 0.345, alpha: 1),
+            UIColor(red: 0.122, green: 0.541, blue: 0.439, alpha: 1),
+            UIColor(red: 0.745, green: 0.859, blue: 0.224, alpha: 1),
+            UIColor(red: 1, green: 0.882, blue: 0.102, alpha: 1),
+            UIColor(red: 0.992, green: 0.455, blue: 0, alpha: 1),
+            UIColor(red: 0.18, green: 0.035, blue: 0.153, alpha: 1),
+            UIColor(red: 1, green: 0.549, blue: 0, alpha: 1),
+            UIColor(red: 0.851, green: 0, blue: 0, alpha: 1),
+            UIColor(red: 1, green: 0.176, blue: 0, alpha: 1),
+            UIColor(red: 0.016, green: 0.459, blue: 0.435, alpha: 1),
+            UIColor(red: 0.812, green: 0.29, blue: 0.188, alpha: 1),
+            UIColor(red: 0.569, green: 0.067, blue: 0.275, alpha: 1),
+            ]
+        
+        self.topView.backgroundColor = monthColor[month!]
+    }
+    
     func drawCircle() {
         var width: CGFloat = 0.0
         var radius: CGFloat = 0.0
