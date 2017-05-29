@@ -12,6 +12,7 @@ class CWDayViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var holidayView: UIView!
+    var holiday: CWHoliday?
     
     func setUpTopLineView(date: CWFiscalDate) {
         // http://uicolor.xyz/#/hex-to-ui

@@ -130,6 +130,7 @@
                                     <outlet property="dateLabel" destination="woH-VR-RRZ" id="fSm-fE-CTV"/>
                                     <outlet property="holidayView" destination="zys-ka-1mC" id="H6A-iA-vbQ"/>
                                     <outlet property="topView" destination="h91-FL-jM4" id="C55-4v-5Ty"/>
+                                    <segue destination="aoq-n1-jXo" kind="show" identifier="showDayDetail" id="ho8-tu-5a0"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -206,6 +207,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5x-vY-Qqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1124.6376811594205" y="413.31521739130437"/>
+        </scene>
+        <!--Day Detail View Controller-->
+        <scene sceneID="9KI-1U-p7K">
+            <objects>
+                <viewController id="aoq-n1-jXo" customClass="CWDayDetailViewController" customModule="Fiscal_Year_Calendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="38Y-WI-8Rr"/>
+                        <viewControllerLayoutGuide type="bottom" id="ie6-l2-3cL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4H1-er-Odz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holiday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lV2-DO-e4f">
+                                <rect key="frame" x="20" y="72" width="71.333333333333329" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jld-v9-bfs">
+                                <rect key="frame" x="20" y="104" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jld-v9-bfs" firstAttribute="leading" secondItem="4H1-er-Odz" secondAttribute="leadingMargin" id="2b9-SS-k4i"/>
+                            <constraint firstItem="lV2-DO-e4f" firstAttribute="top" secondItem="38Y-WI-8Rr" secondAttribute="bottom" constant="8" id="aSJ-kd-R1Y"/>
+                            <constraint firstItem="Jld-v9-bfs" firstAttribute="top" secondItem="lV2-DO-e4f" secondAttribute="bottom" constant="8" id="rT2-BH-ER9"/>
+                            <constraint firstItem="Jld-v9-bfs" firstAttribute="trailing" secondItem="4H1-er-Odz" secondAttribute="trailingMargin" id="wio-r9-8hQ"/>
+                            <constraint firstItem="lV2-DO-e4f" firstAttribute="leading" secondItem="4H1-er-Odz" secondAttribute="leadingMargin" id="yez-bb-sGH"/>
+                            <constraint firstItem="Jld-v9-bfs" firstAttribute="trailing" secondItem="4H1-er-Odz" secondAttribute="trailingMargin" id="zvb-77-sob"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="holidayName" destination="Jld-v9-bfs" id="miT-7w-Ye4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlA-za-fsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018.840579710145" y="412.50000000000006"/>
         </scene>
     </scenes>
 </document>

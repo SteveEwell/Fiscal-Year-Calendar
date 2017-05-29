@@ -40,6 +40,7 @@
 		6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6270A61ED9DDB200DAE00D /* Utilities.swift */; };
 		6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
 		6E9A66651EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
+		6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		6E6270A61ED9DDB200DAE00D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6E9A66631EDB532900FB954B /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWHoliday.swift; path = "Fiscal Year Calendar/CWHoliday/CWHoliday.swift"; sourceTree = "<group>"; };
+		6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDayDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				6E10BE0F1EBF69DC00F51F59 /* AppDelegate.swift */,
 				6E10BE811EBF702D00F51F59 /* CWCalendarViewController.swift */,
+				6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */,
 				6E10BE821EBF702D00F51F59 /* CWDaysHeaderView.swift */,
 				6E10BE831EBF702D00F51F59 /* CWDayViewCell.swift */,
 				6E10BE841EBF702D00F51F59 /* CWPeriodSectionHeader.swift */,
@@ -501,6 +504,7 @@
 				6E10BE701EBF6E6200F51F59 /* CWFiscalDateFormatter.swift in Sources */,
 				6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */,
 				6E10BE711EBF6E6200F51F59 /* CWFiscalDateUtilities.swift in Sources */,
+				6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */,
 				6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */,
 				6E10BE881EBF702D00F51F59 /* CWPeriodSectionHeader.swift in Sources */,
 				6E10BE731EBF6E6200F51F59 /* CWFiscalYear.swift in Sources */,

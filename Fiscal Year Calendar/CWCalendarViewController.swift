@@ -12,6 +12,8 @@ class CWCalendarViewController: UICollectionViewController {
     
     private let reuseIdentifier = "DayCell"
     private let headerReuseIdentifier = "PeriodHeader"
+    internal var hasDayHeader = false
+    internal var firstView = true
     public let sectionInsets = UIEdgeInsets(top: 2, left: 1, bottom: 2, right: 1)
     private var year: CWFiscalYear!
     private var holidays: CWHolidays!
@@ -30,19 +32,34 @@ class CWCalendarViewController: UICollectionViewController {
         self.holidays = CWHolidays(fiscalYear: todayFiscalDate.fiscalYear, country: .US)
         
         // Set up the days of the week header.
-        self.collectionView?.contentInset.top = 44
-        let navBarFrame = self.navigationController!.navigationBar.frame
-        let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
-        daysHeaderView.blurTintColor = UIColor.white
-        self.navigationController?.navigationBar.addSubview(daysHeaderView)
+        if !self.hasDayHeader {
+            self.collectionView?.contentInset.top = 44
+            let navBarFrame = self.navigationController!.navigationBar.frame
+            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
+            daysHeaderView.blurTintColor = UIColor.white
+            self.navigationController?.navigationBar.addSubview(daysHeaderView)
+            self.hasDayHeader = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        let year = self.todayFiscalDate.fiscalYear
-        self.navigationItem.title = "FY \(year)"
-        self.scrollTo(self.todayFiscalDate.day - 1, section: self.todayFiscalDate.period - 1)
+        if self.firstView {
+            let year = self.todayFiscalDate.fiscalYear
+            self.navigationItem.title = "FY \(year)"
+            self.scrollTo(self.todayFiscalDate.day - 1, section: self.todayFiscalDate.period - 1)
+            self.firstView = false
+        }
+        
+        if !self.hasDayHeader {
+            self.collectionView?.contentInset.top = 44
+            let navBarFrame = self.navigationController!.navigationBar.frame
+            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
+            daysHeaderView.blurTintColor = UIColor.white
+            self.navigationController?.navigationBar.addSubview(daysHeaderView)
+            self.hasDayHeader = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,11 +67,11 @@ class CWCalendarViewController: UICollectionViewController {
     }
     
     func dateForIndexPath(_ indexPath: IndexPath) -> CWFiscalDate {
-        return self.year.periods[(indexPath as NSIndexPath).section].dates[(indexPath as NSIndexPath).row]
+        return self.year.periods[(indexPath).section].dates[(indexPath).row]
     }
     
     func periodForIndexPath(_ indexPath: IndexPath) -> CWFiscalPeriod {
-        return self.year.periods[(indexPath as NSIndexPath).section]
+        return self.year.periods[(indexPath).section]
     }
 
 
@@ -82,11 +99,15 @@ class CWCalendarViewController: UICollectionViewController {
         }
         
         cell.clearCircles()
+        cell.isUserInteractionEnabled = false
+        cell.holiday = nil
         cell.setUpTopLineView(date: fiscalDate)
         
         for d in self.holidays.holidays {
             if date == d.date {
+                cell.holiday = d
                 cell.drawCircle()
+                cell.isUserInteractionEnabled = true
                 break
             }
         }
@@ -119,7 +140,7 @@ class CWCalendarViewController: UICollectionViewController {
     }
     
     func refreshCalander() {
-        self.collectionView?.reloadData()
+        self.scrollToTodayButton()
     }
     
     // MARK: @IBAction
@@ -194,5 +215,26 @@ extension CWCalendarViewController : UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int) -> UIEdgeInsets {
             return sectionInsets
+    }
+}
+
+extension CWCalendarViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDayDetail" {
+            for v in (self.navigationController?.navigationBar.subviews)! {
+                if v is CWDaysHeaderView {
+                    v.removeFromSuperview()
+                    self.hasDayHeader = false
+                    break
+                }
+            }
+            if let controller = segue.destination as? CWDayDetailViewController {
+                if let cell = sender as? CWDayViewCell {
+                    if let holiday = cell.holiday {
+                        controller.holiday = holiday
+                    }
+                }
+            }
+        }
     }
 }
