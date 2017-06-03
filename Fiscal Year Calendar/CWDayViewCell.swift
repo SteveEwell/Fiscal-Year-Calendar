@@ -22,18 +22,18 @@ class CWDayViewCell: UICollectionViewCell {
         let month = components.month
         let monthColor: [UIColor] = [
             UIColor.gray,
-            UIColor(red: 0, green: 0.263, blue: 0.345, alpha: 1),
-            UIColor(red: 0.122, green: 0.541, blue: 0.439, alpha: 1),
-            UIColor(red: 0.745, green: 0.859, blue: 0.224, alpha: 1),
-            UIColor(red: 1, green: 0.882, blue: 0.102, alpha: 1),
-            UIColor(red: 0.992, green: 0.455, blue: 0, alpha: 1),
-            UIColor(red: 0.18, green: 0.035, blue: 0.153, alpha: 1),
-            UIColor(red: 1, green: 0.549, blue: 0, alpha: 1),
-            UIColor(red: 0.851, green: 0, blue: 0, alpha: 1),
-            UIColor(red: 1, green: 0.176, blue: 0, alpha: 1),
-            UIColor(red: 0.016, green: 0.459, blue: 0.435, alpha: 1),
-            UIColor(red: 0.812, green: 0.29, blue: 0.188, alpha: 1),
-            UIColor(red: 0.569, green: 0.067, blue: 0.275, alpha: 1),
+            UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0),
+            UIColor(red:0.40, green:0.23, blue:0.72, alpha:1.0),
+            UIColor(red:0.13, green:0.59, blue:0.95, alpha:1.0),
+            UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0),
+            UIColor(red:0.91, green:0.12, blue:0.39, alpha:1.0),
+            UIColor(red:0.00, green:0.74, blue:0.83, alpha:1.0),
+            UIColor(red:0.25, green:0.32, blue:0.71, alpha:1.0),
+            UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.0),
+            UIColor(red:0.55, green:0.76, blue:0.29, alpha:1.0),
+            UIColor(red:1.00, green:0.76, blue:0.03, alpha:1.0),
+            UIColor(red:1.00, green:0.34, blue:0.13, alpha:1.0),
+            UIColor(red:0.01, green:0.66, blue:0.96, alpha:1.0),
             ]
         
         self.topView.backgroundColor = monthColor[month!]
@@ -59,11 +59,11 @@ class CWDayViewCell: UICollectionViewCell {
             radius = 2
         }
         
-        var circleColor = UIColor.black.cgColor
+        var circleColor = UIColor.red.cgColor
         
         if let hol = self.holiday {
             if hol.open {
-                circleColor = UIColor(red:0.07, green:0.73, blue:0.33, alpha:1.0).cgColor
+                circleColor = UIColor.black.cgColor
             } else {
                 circleColor = UIColor.red.cgColor
             }
