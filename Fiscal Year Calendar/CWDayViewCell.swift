@@ -39,7 +39,7 @@ class CWDayViewCell: UICollectionViewCell {
         self.topView.backgroundColor = monthColor[month!]
     }
     
-    func drawCircle() {
+    func drawCircleHoliday() {
         var width: CGFloat = 0.0
         var radius: CGFloat = 0.0
         if (Display.displayType == .iphoneMed) {
@@ -59,11 +59,21 @@ class CWDayViewCell: UICollectionViewCell {
             radius = 2
         }
         
+        var circleColor = UIColor.black.cgColor
+        
+        if let hol = self.holiday {
+            if hol.open {
+                circleColor = UIColor(red:0.07, green:0.73, blue:0.33, alpha:1.0).cgColor
+            } else {
+                circleColor = UIColor.red.cgColor
+            }
+        }
+        
         let circlePath = UIBezierPath(arcCenter: CGPoint(x: width ,y: radius), radius: radius, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
-        shapeLayer.fillColor = UIColor.red.cgColor
-        shapeLayer.strokeColor = UIColor.red.cgColor
+        shapeLayer.fillColor = circleColor
+        shapeLayer.strokeColor = circleColor
         shapeLayer.lineWidth = 0
         self.holidayView.layer.addSublayer(shapeLayer)
     }

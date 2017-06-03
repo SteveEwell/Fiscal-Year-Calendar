@@ -106,7 +106,7 @@ class CWCalendarViewController: UICollectionViewController {
         for d in self.holidays.holidays {
             if date == d.date {
                 cell.holiday = d
-                cell.drawCircle()
+                cell.drawCircleHoliday()
                 cell.isUserInteractionEnabled = true
                 break
             }
@@ -140,7 +140,11 @@ class CWCalendarViewController: UICollectionViewController {
     }
     
     func refreshCalander() {
-        self.scrollToTodayButton()
+        let util = CWFiscalDateUtilities()
+        self.todayFiscalDate = CWFiscalDate()
+        let today = self.todayFiscalDate.storedDate
+        self.todayNormalizedDate = util.getNormalizedDate(today)
+        self.collectionView!.reloadData()
     }
     
     // MARK: @IBAction
