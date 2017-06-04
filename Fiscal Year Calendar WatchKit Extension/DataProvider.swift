@@ -54,5 +54,14 @@ extension Date {
         comps.second = 59
         return cal.date(from: comps)!
     }
-    
+}
+
+extension CWFiscalDate {
+    var fraction: Float {
+        if (self.year > 2000 && Int(self.year % 6) == 1) && self.period == 13 {
+            return Float(self.week) / 5.0
+        } else {
+            return Float(self.week) / 4.0
+        }
+    }
 }

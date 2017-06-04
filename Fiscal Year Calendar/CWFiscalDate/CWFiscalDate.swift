@@ -24,7 +24,6 @@ public struct CWFiscalDate: FiscalDate {
     var period: Int
     var week: Int
     var day: Int
-    var fraction: Float
     
     var yearAsString: String {
         return "\(year)"
@@ -53,7 +52,6 @@ public struct CWFiscalDate: FiscalDate {
         self.period = 0
         self.week = 0
         self.day = 0
-        self.fraction = Float(0.0)
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = cal.dateComponents([.day , .month, .year ], from: self.date)
@@ -69,7 +67,6 @@ public struct CWFiscalDate: FiscalDate {
         self.period = 0
         self.week = 0
         self.day = 0
-        self.fraction = Float(0.0)
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = cal.dateComponents([.day , .month, .year ], from: calendarDate)
@@ -138,7 +135,6 @@ public struct CWFiscalDate: FiscalDate {
         self.date = calendarDate
         self.day = Int(round(weeksRemainderAsDays)) + 1
         self.setQuarter()
-        self.setWeekFraction()
     }
     
     private mutating func setQuarter() {
@@ -153,14 +149,6 @@ public struct CWFiscalDate: FiscalDate {
             self.quarter = 4
         default:
             self.quarter = 0
-        }
-    }
-    
-    private mutating func setWeekFraction() {
-        if (self.year > 2000 && Int(self.year % 6) == 1) && self.period == 13 {
-            self.fraction = Float(self.week) / 5.0
-        } else {
-            self.fraction = Float(self.week) / 4.0
         }
     }
 }

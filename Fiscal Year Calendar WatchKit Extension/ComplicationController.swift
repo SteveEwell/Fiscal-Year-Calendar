@@ -33,41 +33,41 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func templateModularSmallForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularSmallColumnsText()
-        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "PR")
-        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "WK")
-        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: data.periodAsString)
-        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: data.weekAsString)
+        template.row1Column1TextProvider = CLKSimpleTextProvider(text: "PR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider(text: "WK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider(text: data.periodAsString)
+        template.row2Column2TextProvider = CLKSimpleTextProvider(text: data.weekAsString)
         return template
     }
     
     func placeholderTemplateModularSmall() -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularSmallColumnsText()
-        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "PR")
-        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "WK")
-        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
-        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        template.row1Column1TextProvider = CLKSimpleTextProvider(text: "PR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider(text: "WK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider(text: "--")
+        template.row2Column2TextProvider = CLKSimpleTextProvider(text: "--")
         return template
     }
     
     func templateModularLargeForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularLargeColumns()
-        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "YEAR")
-        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "PERIOD")
-        template.row3Column1TextProvider = CLKSimpleTextProvider.init(text: "WEEK")
-        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: data.yearAsString)
-        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: data.periodAsString)
-        template.row3Column2TextProvider = CLKSimpleTextProvider.init(text: data.weekAsString)
+        template.row1Column1TextProvider = CLKSimpleTextProvider(text: "YEAR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider(text: "PERIOD")
+        template.row3Column1TextProvider = CLKSimpleTextProvider(text: "WEEK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider(text: data.yearAsString)
+        template.row2Column2TextProvider = CLKSimpleTextProvider(text: data.periodAsString)
+        template.row3Column2TextProvider = CLKSimpleTextProvider(text: data.weekAsString)
         return template
     }
     
     func placeholderTemplateModularLarge() -> CLKComplicationTemplate {
         let template = CLKComplicationTemplateModularLargeColumns()
-        template.row1Column1TextProvider = CLKSimpleTextProvider.init(text: "YEAR")
-        template.row2Column1TextProvider = CLKSimpleTextProvider.init(text: "PERIOD")
-        template.row3Column1TextProvider = CLKSimpleTextProvider.init(text: "WEEK")
-        template.row1Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
-        template.row2Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
-        template.row3Column2TextProvider = CLKSimpleTextProvider.init(text: "--")
+        template.row1Column1TextProvider = CLKSimpleTextProvider(text: "YEAR")
+        template.row2Column1TextProvider = CLKSimpleTextProvider(text: "PERIOD")
+        template.row3Column1TextProvider = CLKSimpleTextProvider(text: "WEEK")
+        template.row1Column2TextProvider = CLKSimpleTextProvider(text: "--")
+        template.row2Column2TextProvider = CLKSimpleTextProvider(text: "--")
+        template.row3Column2TextProvider = CLKSimpleTextProvider(text: "--")
         return template
     }
     
