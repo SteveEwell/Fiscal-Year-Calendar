@@ -17,34 +17,56 @@ protocol FiscalDate {
     var day: Int {get}
 }
 
+/// The fiscal date for a given calendar date.
 public struct CWFiscalDate: FiscalDate {
+    /// Calendar date that the fiscal date is derived from.
     var date: Date
+
+    /// The fiscal year.
     var year: Int
+
+    /// The fiscal quarter.
     var quarter: Int
+
+    /// The fiscal period.
     var period: Int
+
+    /// Week in the fiscal period.
     var week: Int
+
+    /// Day in the week starting on Monday (1 - 7).
     var day: Int
-    
+
+    /// Fiscal year as a String value.
     var yearAsString: String {
         return "\(year)"
     }
-    
+
+    /// Fiscal quarter as a String value.
     var quarterAsString: String {
         return "\(quarter)"
     }
-    
+
+    /// Fiscal period as a String value.
     var periodAsString: String {
         return "\(period)"
     }
-    
+
+    /// Period week as a String value.
     var weekAsString: String {
         return "\(week)"
     }
-    
+
+    /// Day of week as a String value.
     var dayAsString: String {
         return "\(day)"
     }
-    
+
+    /**
+    Initializes a new fiscal date based on the current date.
+
+    - Returns: A CWFiscalDate based on the current date.
+    */
     init() {
         self.date = Date()
         self.year = 0
@@ -57,9 +79,16 @@ public struct CWFiscalDate: FiscalDate {
         let components = cal.dateComponents([.day , .month, .year ], from: self.date)
         let now = cal.date(from: components)
 
-        self.fiscalDateFromDate(now!)
+        self.fiscalDate(from: now!)
     }
-    
+
+    /**
+    Initializes a new fiscal date based on a Date object.
+
+    - Parameter calendarDate: The Date object used to derive the fiscal date.
+
+    - Returns: A CWFiscalDate based on a Date object.
+    */
     init(from calendarDate: Date) {
         self.date = calendarDate
         self.year = 0
@@ -72,11 +101,15 @@ public struct CWFiscalDate: FiscalDate {
         let components = cal.dateComponents([.day , .month, .year ], from: calendarDate)
         let normalizedDate = cal.date(from: components)
         
-        self.fiscalDateFromDate(normalizedDate!)
+        self.fiscalDate(from: normalizedDate!)
     }
-    
-    private mutating func fiscalDateFromDate(_ calendarDate: Date) {
 
+    /**
+    Sets all the properties for the fiscal date based on a Date object.
+
+    - Parameter calendarDate: The Date object used to derive the fiscal date.
+    */
+    private mutating func fiscalDate(from calendarDate: Date) {
         let dateFormat = DateFormatter()
         dateFormat.setLocalizedDateFormatFromTemplate("MMddyy")
         
@@ -136,7 +169,8 @@ public struct CWFiscalDate: FiscalDate {
         self.day = Int(round(weeksRemainderAsDays)) + 1
         self.setQuarter()
     }
-    
+
+    /// Sets the quarter property based ont the period.
     private mutating func setQuarter() {
         switch self.period {
         case 1, 2, 3:

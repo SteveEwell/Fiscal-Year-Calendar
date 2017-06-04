@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let current = cal.dateComponents([.day], from: date)
             
             if (current.day! - stored.day! != 0) {
-                calVC.refreshCalander()
+                calVC.refreshCalender()
             }
         }
         

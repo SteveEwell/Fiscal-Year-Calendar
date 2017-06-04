@@ -28,8 +28,8 @@ class Fiscal_Year_CalendarTests: XCTestCase {
         let testDateTwo = dateFormat.fiscalDateFromString("9/2/2012")
         let testPStartDateOne = dateFormat.date(from: "11/23/2015")
         let testPStartDateTwo = dateFormat.date(from: "8/06/2012")
-        XCTAssertEqual(utilities.dateForStartOfFiscalPeriod(testDateOne), testPStartDateOne!)
-        XCTAssertEqual(utilities.dateForStartOfFiscalPeriod(testDateTwo), testPStartDateTwo!)
+        XCTAssertEqual(utilities.startOfFiscalPeriodDate(for: testDateOne), testPStartDateOne!)
+        XCTAssertEqual(utilities.startOfFiscalPeriodDate(for:  testDateTwo), testPStartDateTwo!)
     }
     
     func testFiscalYearStartDate() {
@@ -37,8 +37,8 @@ class Fiscal_Year_CalendarTests: XCTestCase {
         let testDateTwo = dateFormat.fiscalDateFromString("8/30/2015")
         let testYStartDate = dateFormat.date(from: "8/31/2015")
         let testYStartDateTwo = dateFormat.date(from: "9/1/2014")
-        XCTAssertEqual(utilities.dateForStartOfFiscalYear(testDateOne), testYStartDate!)
-        XCTAssertEqual(utilities.dateForStartOfFiscalYear(testDateTwo), testYStartDateTwo!)
+        XCTAssertEqual(utilities.startOfFiscalYearDate(for: testDateOne), testYStartDate!)
+        XCTAssertEqual(utilities.startOfFiscalYearDate(for: testDateTwo), testYStartDateTwo!)
     }
     
     func testFiscalDateAsString() {

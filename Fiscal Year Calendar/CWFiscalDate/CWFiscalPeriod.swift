@@ -10,6 +10,6 @@ import Foundation
 
 public struct CWFiscalPeriod {
     let period: Int
-    let fiscalYear: Int
+    let year: Int
     let dates: [CWFiscalDate]
 }

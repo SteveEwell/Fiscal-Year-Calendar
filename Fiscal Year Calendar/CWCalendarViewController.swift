@@ -26,7 +26,7 @@ class CWCalendarViewController: UICollectionViewController {
         
         let util = CWFiscalDateUtilities()
         self.todayFiscalDate = CWFiscalDate()
-        self.year = util.getFiscalYearForFiscalDate(self.todayFiscalDate)
+        self.year = util.fiscalYear(for: self.todayFiscalDate)
         let today = Date()
         self.todayNormalizedDate = util.getNormalizedDate(today)
         self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: .US)
@@ -85,7 +85,6 @@ class CWCalendarViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CWDayViewCell
         cell.topView.backgroundColor = UIColor.gray
         let dateFormatter = DateFormatter()
@@ -119,7 +118,6 @@ class CWCalendarViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerReuseIdentifier, for: indexPath) as! CWPeriodSectionHeader
         let periodAtIndex = self.periodForIndexPath(indexPath)
         let formatter = DateFormatter()
@@ -139,7 +137,7 @@ class CWCalendarViewController: UICollectionViewController {
         return header
     }
     
-    func refreshCalander() {
+    func refreshCalender() {
         let util = CWFiscalDateUtilities()
         self.todayFiscalDate = CWFiscalDate()
         let today = self.todayFiscalDate.date
@@ -152,7 +150,7 @@ class CWCalendarViewController: UICollectionViewController {
         let todaysDate = CWFiscalDate()
         if (self.year.fiscalYear != todaysDate.year) {
             let util = CWFiscalDateUtilities()
-            self.year = util.getFiscalYearForFiscalDate(todaysDate)
+            self.year = util.fiscalYear(for: todaysDate)
             let year = self.year.periods[0].dates[0].year
             self.holidays = CWHolidays(fiscalYear: year, country: .US)
             self.collectionView!.reloadData()
@@ -164,7 +162,7 @@ class CWCalendarViewController: UICollectionViewController {
     
     @IBAction func prevFiscalYear() {
         let util = CWFiscalDateUtilities()
-        let prevFiscalYear = util.getPreviousYearForFiscalYear(self.year)
+        let prevFiscalYear = util.previousYear(for: self.year)
         self.year = prevFiscalYear
         let year = self.year.periods[0].dates[0].year
         self.holidays = CWHolidays(fiscalYear: year, country: .US)
@@ -181,7 +179,7 @@ class CWCalendarViewController: UICollectionViewController {
     
     @IBAction func nextFiscalYear() {
         let util = CWFiscalDateUtilities()
-        let nextFiscalYear = util.getNextYearForFiscalYear(self.year)
+        let nextFiscalYear = util.nextYear(for: self.year)
         self.year = nextFiscalYear
         let year = self.year.periods[0].dates[0].year
         self.holidays = CWHolidays(fiscalYear: year, country: .US)
@@ -204,7 +202,7 @@ class CWCalendarViewController: UICollectionViewController {
     }
 }
 
-
+// MARK: Extensions
 extension CWCalendarViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -223,6 +221,7 @@ extension CWCalendarViewController : UICollectionViewDelegateFlowLayout {
 }
 
 extension CWCalendarViewController {
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDayDetail" {
             for v in (self.navigationController?.navigationBar.subviews)! {
