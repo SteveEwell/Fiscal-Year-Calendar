@@ -78,11 +78,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(dataProvider.thirtyDaysData().first!.storedDate)
+        handler(dataProvider.thirtyDaysData().first!.date)
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(dataProvider.thirtyDaysData().last!.storedDate)
+        handler(dataProvider.thirtyDaysData().last!.date)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -103,7 +103,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         default:
             template = nil
         }
-        return CLKComplicationTimelineEntry(date: data.storedDate, complicationTemplate: template!)
+        return CLKComplicationTimelineEntry(date: data.date, complicationTemplate: template!)
     }
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
@@ -117,7 +117,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         let entries = dataProvider.thirtyDaysData().filter{
-            date.compare($0.storedDate as Date) == .orderedDescending
+            date.compare($0.date as Date) == .orderedDescending
             }.map{
                 self.timelineEntryForData($0, complication: complication)
         }
@@ -126,7 +126,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         let entries = dataProvider.thirtyDaysData().filter{
-            date.compare($0.storedDate as Date) == .orderedAscending
+            date.compare($0.date as Date) == .orderedAscending
             }.map{
                 self.timelineEntryForData($0, complication: complication)
         }

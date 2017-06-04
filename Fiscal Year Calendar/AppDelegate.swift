@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let fiscalDate = calVC.todayFiscalDate {
             let date = Date()
             let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-            let stored = cal.dateComponents([.day], from: fiscalDate.storedDate)
+            let stored = cal.dateComponents([.day], from: fiscalDate.date)
             let current = cal.dateComponents([.day], from: date)
             
             if (current.day! - stored.day! != 0) {

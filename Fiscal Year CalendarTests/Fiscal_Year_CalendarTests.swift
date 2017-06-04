@@ -62,7 +62,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalSaturdayOne() {
         let testDate = dateFormat.fiscalDateFromString("12/5/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 2)
@@ -71,7 +71,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalSundayOne() {
         let testDate = dateFormat.fiscalDateFromString("12/6/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 2)
@@ -80,7 +80,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalMondayOne() {
         let testDate = dateFormat.fiscalDateFromString("12/7/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 3)
@@ -89,7 +89,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalSundayTwo() {
         let testDate = dateFormat.fiscalDateFromString("12/13/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 3)
@@ -98,7 +98,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalMondayTwo() {
         let testDate = dateFormat.fiscalDateFromString("12/14/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 4)
@@ -107,7 +107,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalSundayThree() {
         let testDate = dateFormat.fiscalDateFromString("12/20/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 4)
         XCTAssertEqual(testDate.week, 4)
@@ -116,7 +116,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalMondayThree() {
         let testDate = dateFormat.fiscalDateFromString("12/21/2015")
-        XCTAssertEqual(testDate.fiscalYear, 2016)
+        XCTAssertEqual(testDate.year, 2016)
         XCTAssertEqual(testDate.quarter, 2)
         XCTAssertEqual(testDate.period, 5)
         XCTAssertEqual(testDate.week, 1)
@@ -125,7 +125,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalWeekFiveFuture() {
         let testDate = dateFormat.fiscalDateFromString("9/3/2017")
-        XCTAssertEqual(testDate.fiscalYear, 2017)
+        XCTAssertEqual(testDate.year, 2017)
         XCTAssertEqual(testDate.quarter, 4)
         XCTAssertEqual(testDate.period, 13)
         XCTAssertEqual(testDate.week, 5)
@@ -134,7 +134,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalWeekOneFuture() {
         let testDate = dateFormat.fiscalDateFromString("9/3/2018")
-        XCTAssertEqual(testDate.fiscalYear, 2019)
+        XCTAssertEqual(testDate.year, 2019)
         XCTAssertEqual(testDate.quarter, 1)
         XCTAssertEqual(testDate.period, 1)
         XCTAssertEqual(testDate.week, 1)
@@ -143,7 +143,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalWeekFivePast() {
         let testDate = dateFormat.fiscalDateFromString("9/4/2011")
-        XCTAssertEqual(testDate.fiscalYear, 2011)
+        XCTAssertEqual(testDate.year, 2011)
         XCTAssertEqual(testDate.quarter, 4)
         XCTAssertEqual(testDate.period, 13)
         XCTAssertEqual(testDate.week, 5)
@@ -152,7 +152,7 @@ class Fiscal_Year_CalendarTests: XCTestCase {
     
     func testFiscalWeekOnePast() {
         let testDate = dateFormat.fiscalDateFromString("9/3/2012")
-        XCTAssertEqual(testDate.fiscalYear, 2013)
+        XCTAssertEqual(testDate.year, 2013)
         XCTAssertEqual(testDate.quarter, 1)
         XCTAssertEqual(testDate.period, 1)
         XCTAssertEqual(testDate.week, 1)

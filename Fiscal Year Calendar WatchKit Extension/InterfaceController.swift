@@ -26,7 +26,7 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         self.dateNow = CWFiscalDate()
-        self.fiscalYear.setText(String(self.dateNow.fiscalYear))
+        self.fiscalYear.setText(String(self.dateNow.year))
         self.fiscalPeriod.setText(String(self.dateNow.period))
         self.fiscalWeek.setText(String(self.dateNow.week))
     }

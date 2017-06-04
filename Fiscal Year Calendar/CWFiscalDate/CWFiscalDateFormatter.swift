@@ -11,13 +11,13 @@ import Foundation
 class CWFiscalDateFormatter: DateFormatter {
     
     func fiscalDateFromString(_ string:String) -> CWFiscalDate {
-        let fiscalDate = CWFiscalDate(fromDate: self.date(from: string)!)
+        let fiscalDate = CWFiscalDate(from: self.date(from: string)!)
         
         return fiscalDate
     }
     
     func stringFromFiscalDate(_ fiscalDate: CWFiscalDate) -> String {
-        let year = fiscalDate.fiscalYear
+        let year = fiscalDate.year
         let period = fiscalDate.period
         let week = fiscalDate.week
         let string = "FY\(year)P\(period)W\(week)"

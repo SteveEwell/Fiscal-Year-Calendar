@@ -9,8 +9,8 @@
 import Foundation
 
 protocol FiscalDate {
-    var storedDate: Date {get}
-    var fiscalYear: Int {get}
+    var date: Date {get}
+    var year: Int {get}
     var quarter: Int {get}
     var period: Int {get}
     var week: Int {get}
@@ -18,8 +18,8 @@ protocol FiscalDate {
 }
 
 public struct CWFiscalDate: FiscalDate {
-    var storedDate: Date
-    var fiscalYear: Int
+    var date: Date
+    var year: Int
     var quarter: Int
     var period: Int
     var week: Int
@@ -27,7 +27,7 @@ public struct CWFiscalDate: FiscalDate {
     var fraction: Float
     
     var yearAsString: String {
-        return "\(fiscalYear)"
+        return "\(year)"
     }
     
     var quarterAsString: String {
@@ -47,8 +47,8 @@ public struct CWFiscalDate: FiscalDate {
     }
     
     init() {
-        self.storedDate = Date()
-        self.fiscalYear = 0
+        self.date = Date()
+        self.year = 0
         self.quarter = 0
         self.period = 0
         self.week = 0
@@ -56,15 +56,15 @@ public struct CWFiscalDate: FiscalDate {
         self.fraction = Float(0.0)
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        let components = cal.dateComponents([.day , .month, .year ], from: self.storedDate)
+        let components = cal.dateComponents([.day , .month, .year ], from: self.date)
         let now = cal.date(from: components)
 
         self.fiscalDateFromDate(now!)
     }
     
-    init(fromDate date: Date) {
-        self.storedDate = date
-        self.fiscalYear = 0
+    init(from calendarDate: Date) {
+        self.date = calendarDate
+        self.year = 0
         self.quarter = 0
         self.period = 0
         self.week = 0
@@ -72,13 +72,13 @@ public struct CWFiscalDate: FiscalDate {
         self.fraction = Float(0.0)
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        let components = cal.dateComponents([.day , .month, .year ], from: date)
+        let components = cal.dateComponents([.day , .month, .year ], from: calendarDate)
         let normalizedDate = cal.date(from: components)
         
         self.fiscalDateFromDate(normalizedDate!)
     }
     
-    private mutating func fiscalDateFromDate(_ date: Date) {
+    private mutating func fiscalDateFromDate(_ calendarDate: Date) {
 
         let dateFormat = DateFormatter()
         dateFormat.setLocalizedDateFormatFromTemplate("MMddyy")
@@ -92,29 +92,29 @@ public struct CWFiscalDate: FiscalDate {
         let baseExtraWeekInterval = 6
         
         
-        let daysDiff = date.timeIntervalSince(baseDate!) / Double(24 * 60 * 60)
+        let daysDiff = calendarDate.timeIntervalSince(baseDate!) / Double(24 * 60 * 60)
         let years = Double(daysDiff) / Double(daysInFiscalYear)
-        self.fiscalYear = Int(years) + baseFiscalYear
-        let yearsRemander = years - Double(Int(years))
-        let yearsRemanderAsDays = round(yearsRemander * Double(daysInFiscalYear))
+        self.year = Int(years) + baseFiscalYear
+        let yearsRemainder = years - Double(Int(years))
+        let yearsRemainderAsDays = round(yearsRemainder * Double(daysInFiscalYear))
         
-        let periods = Double(yearsRemanderAsDays) / Double(daysInFiscalPeriod)
+        let periods = Double(yearsRemainderAsDays) / Double(daysInFiscalPeriod)
         self.period = Int(periods) + 1
-        let periodsRemander = periods - Double(Int(periods))
-        let periodsRemanderAsDays = round(periodsRemander * Double(daysInFiscalPeriod))
+        let periodsRemainder = periods - Double(Int(periods))
+        let periodsRemainderAsDays = round(periodsRemainder * Double(daysInFiscalPeriod))
         
-        let weeks = Double(periodsRemanderAsDays) / Double(daysInFiscalWeek)
+        let weeks = Double(periodsRemainderAsDays) / Double(daysInFiscalWeek)
         self.week = Int(weeks) + 1
-        let weeksRemander = weeks - Double(Int(weeks))
-        let weeksRemainderAsDays = (weeksRemander * Double(daysInFiscalWeek))
+        let weeksRemainder = weeks - Double(Int(weeks))
+        let weeksRemainderAsDays = (weeksRemainder * Double(daysInFiscalWeek))
         
-        if (self.fiscalYear > baseExtraWeekFiscalYear) {
+        if (self.year > baseExtraWeekFiscalYear) {
             let baseYear = baseExtraWeekFiscalYear
-            var yearsDiff = self.fiscalYear - baseYear
+            var yearsDiff = self.year - baseYear
             while (yearsDiff > 0) {
                 self.week -= 1
                 if (self.week <= 0 && self.period == 1 && yearsDiff == 1) {
-                    self.fiscalYear -= 1
+                    self.year -= 1
                     yearsDiff -= 1
                     self.period = 13
                     self.week = 5
@@ -126,7 +126,7 @@ public struct CWFiscalDate: FiscalDate {
                     }
                     
                     if (self.period <= 0) {
-                        self.fiscalYear -= 1
+                        self.year -= 1
                         self.period = 13
                         yearsDiff -= 1
                     }
@@ -135,7 +135,7 @@ public struct CWFiscalDate: FiscalDate {
             }
         }
         
-        self.storedDate = date
+        self.date = calendarDate
         self.day = Int(round(weeksRemainderAsDays)) + 1
         self.setQuarter()
         self.setWeekFraction()
@@ -157,7 +157,7 @@ public struct CWFiscalDate: FiscalDate {
     }
     
     private mutating func setWeekFraction() {
-        if (self.fiscalYear > 2000 && Int(self.fiscalYear % 6) == 1) && self.period == 13 {
+        if (self.year > 2000 && Int(self.year % 6) == 1) && self.period == 13 {
             self.fraction = Float(self.week) / 5.0
         } else {
             self.fraction = Float(self.week) / 4.0

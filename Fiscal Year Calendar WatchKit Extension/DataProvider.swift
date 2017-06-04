@@ -27,14 +27,14 @@ struct DataProvider {
         let calendar: Calendar = Calendar.current
         var offset = DateComponents()
         offset.day = 0 - 15
-        let startDate = calendar.date(byAdding: offset, to: now.storedDate)
-        let startFiscalDate = CWFiscalDate(fromDate: startDate!)
+        let startDate = calendar.date(byAdding: offset, to: now.date)
+        let startFiscalDate = CWFiscalDate(from: startDate!)
         var datesArray = [CWFiscalDate]()
         datesArray.append(startFiscalDate)
         for i in 1..<30 {
             offset.day = i
             let nextDay = calendar.date(byAdding: offset, to: startDate!)
-            let nextFiscalDay = CWFiscalDate(fromDate: nextDay!)
+            let nextFiscalDay = CWFiscalDate(from: nextDay!)
             datesArray.append(nextFiscalDay)
         }
         return datesArray

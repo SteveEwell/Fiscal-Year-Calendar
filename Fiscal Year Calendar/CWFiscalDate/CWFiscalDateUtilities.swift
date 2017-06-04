@@ -20,7 +20,7 @@ public class CWFiscalDateUtilities {
     }
     
     public func fiscalYearHasWeekFive(_ fiscalDate:CWFiscalDate) -> Bool {
-        if (fiscalDate.fiscalYear > 2000 && Int(fiscalDate.fiscalYear % 6) == 1) {
+        if (fiscalDate.year > 2000 && Int(fiscalDate.year % 6) == 1) {
             return true
         }
         return false
@@ -37,9 +37,9 @@ public class CWFiscalDateUtilities {
     public func dateForStartOfFiscalPeriod(_ fiscalDate:CWFiscalDate) -> Date {
         let fiscalDay:Int = (fiscalDate.week * 7) - (7 - fiscalDate.day) - 1
         let calendar:Calendar = Calendar.current
-        var offset:DateComponents = DateComponents.init()
+        var offset:DateComponents = DateComponents()
         offset.day = 0 - fiscalDay
-        let date = calendar.date(byAdding: offset, to: fiscalDate.storedDate as Date)
+        let date = calendar.date(byAdding: offset, to: fiscalDate.date)
         
         return date!
     }
@@ -55,15 +55,15 @@ public class CWFiscalDateUtilities {
         }
         let days = periodsAsDays + weeksAsDays + fiscalDate.day - 1
         let calendar:Calendar = Calendar.current
-        var offset:DateComponents = DateComponents.init()
+        var offset:DateComponents = DateComponents()
         offset.day = 0 - days
-        let date = calendar.date(byAdding: offset, to: fiscalDate.storedDate as Date)
+        let date = calendar.date(byAdding: offset, to: fiscalDate.date)
         
         return date!
     }
     
     public func getFiscalPeriodForDate(_ date:Date) -> CWFiscalPeriod {
-        let fiscalDate = CWFiscalDate(fromDate: date)
+        let fiscalDate = CWFiscalDate(from: date)
         let period = getFiscalPeriodForFiscalDate(fiscalDate)
         
         return period
@@ -73,9 +73,9 @@ public class CWFiscalDateUtilities {
         let hasWeekFive = self.fiscalYearHasWeekFive(fiscalDate)
         var numberOfDays: Int = 0
         let startDate: Date = self.dateForStartOfFiscalPeriod(fiscalDate)
-        let startFiscalDate: CWFiscalDate = CWFiscalDate.init(fromDate: startDate)
+        let startFiscalDate: CWFiscalDate = CWFiscalDate(from: startDate)
         let calendar: Calendar = Calendar.current
-        var offset: DateComponents = DateComponents.init()
+        var offset: DateComponents = DateComponents()
         var datesArray = [CWFiscalDate]()
         datesArray.append(startFiscalDate)
         
@@ -88,16 +88,16 @@ public class CWFiscalDateUtilities {
         for i in 1 ..< numberOfDays {
             offset.day = i
             let nextDay = calendar.date(byAdding: offset, to: startDate)
-            let nextFiscalDay:CWFiscalDate = CWFiscalDate.init(fromDate: nextDay!)
+            let nextFiscalDay:CWFiscalDate = CWFiscalDate(from: nextDay!)
             
             datesArray.append(nextFiscalDay)
         }
-        let fiscalPeriod = CWFiscalPeriod.init(period:startFiscalDate.period, fiscalYear:startFiscalDate.fiscalYear, dates: datesArray)
+        let fiscalPeriod = CWFiscalPeriod(period:startFiscalDate.period, fiscalYear:startFiscalDate.year, dates: datesArray)
         return fiscalPeriod
     }
     
     public func getFiscalYearForDate(_ date:Date) -> CWFiscalYear {
-        let fiscalDate = CWFiscalDate(fromDate: date)
+        let fiscalDate = CWFiscalDate(from: date)
         let year = getFiscalYearForFiscalDate(fiscalDate)
         
         return year
@@ -110,7 +110,7 @@ public class CWFiscalDateUtilities {
         var lastDayInPeriod = CWFiscalDate()
         for i in 0..<13 {
             if (i == 0) {
-                let start = CWFiscalDate(fromDate: startOfYearDate)
+                let start = CWFiscalDate(from: startOfYearDate)
                 let period = self.getFiscalPeriodForFiscalDate(start)
                 let periodCount = period.dates.count
                 lastDayInPeriod = period.dates[periodCount - 1]
@@ -118,10 +118,10 @@ public class CWFiscalDateUtilities {
                 periodsArray.insert(period, at: i)
             } else {
                 let calendar:Calendar = Calendar.current
-                var offset:DateComponents = DateComponents.init()
+                var offset:DateComponents = DateComponents()
                 offset.day = 1
-                let startPeriod = calendar.date(byAdding: offset, to: lastDayInPeriod.storedDate as Date)
-                let start = CWFiscalDate(fromDate: startPeriod!)
+                let startPeriod = calendar.date(byAdding: offset, to: lastDayInPeriod.date)
+                let start = CWFiscalDate(from: startPeriod!)
                 let period = self.getFiscalPeriodForFiscalDate(start)
                 let periodCount = period.dates.count
                 lastDayInPeriod = period.dates[periodCount - 1]
@@ -136,9 +136,9 @@ public class CWFiscalDateUtilities {
         let endDateIndex = fiscalPeriod.dates.count - 1
         let endDate = fiscalPeriod.dates[endDateIndex]
         let calendar:Calendar = Calendar.current
-        var offset: DateComponents = DateComponents.init()
+        var offset: DateComponents = DateComponents()
         offset.day = 1
-        let date = calendar.date(byAdding: offset, to: endDate.storedDate as Date)
+        let date = calendar.date(byAdding: offset, to: endDate.date)
         let nextPeriod = getFiscalPeriodForDate(date!)
         
         return nextPeriod
@@ -149,7 +149,7 @@ public class CWFiscalDateUtilities {
         let calendar:Calendar = Calendar.current
         var offset = DateComponents()
         offset.day = 0 - 1
-        let date = calendar.date(byAdding: offset, to: startDate.storedDate as Date)
+        let date = calendar.date(byAdding: offset, to: startDate.date)
         let previousPeriod = getFiscalPeriodForDate(date!)
         
         return previousPeriod
@@ -159,7 +159,7 @@ public class CWFiscalDateUtilities {
         let endPeriodIndex = fiscalYear.periods.count - 1
         let endDateIndex = fiscalYear.periods[endPeriodIndex].dates.count - 1
         let endDate = fiscalYear.periods[endPeriodIndex].dates[endDateIndex]
-        let nextStartDate = Date.init(timeInterval: 86400, since: endDate.storedDate as Date)
+        let nextStartDate = Date(timeInterval: 86400, since: endDate.date)
         let nextYear = getFiscalYearForDate(nextStartDate)
         
         return nextYear
@@ -168,9 +168,9 @@ public class CWFiscalDateUtilities {
     public func getPreviousYearForFiscalYear(_ fiscalYear:CWFiscalYear) -> CWFiscalYear {
         let startDate = fiscalYear.periods[0].dates[0]
         let calendar:Calendar = Calendar.current
-        var offset:DateComponents = DateComponents.init()
+        var offset:DateComponents = DateComponents()
         offset.day = 0 - 1
-        let date = calendar.date(byAdding: offset, to: startDate.storedDate as Date)
+        let date = calendar.date(byAdding: offset, to: startDate.date)
         let previousYear = getFiscalYearForDate(date!)
         
         return previousYear

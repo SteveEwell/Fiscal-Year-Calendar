@@ -29,7 +29,7 @@ class CWCalendarViewController: UICollectionViewController {
         self.year = util.getFiscalYearForFiscalDate(self.todayFiscalDate)
         let today = Date()
         self.todayNormalizedDate = util.getNormalizedDate(today)
-        self.holidays = CWHolidays(fiscalYear: todayFiscalDate.fiscalYear, country: .US)
+        self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: .US)
         
         // Set up the days of the week header.
         if !self.hasDayHeader {
@@ -46,7 +46,7 @@ class CWCalendarViewController: UICollectionViewController {
         super.viewWillAppear(true)
         
         if self.firstView {
-            let year = self.todayFiscalDate.fiscalYear
+            let year = self.todayFiscalDate.year
             self.navigationItem.title = "FY \(year)"
             self.scrollTo(self.todayFiscalDate.day - 1, section: self.todayFiscalDate.period - 1)
             self.firstView = false
@@ -90,7 +90,7 @@ class CWCalendarViewController: UICollectionViewController {
         cell.topView.backgroundColor = UIColor.gray
         let dateFormatter = DateFormatter()
         let fiscalDate = self.dateForIndexPath(indexPath)
-        let date = fiscalDate.storedDate
+        let date = fiscalDate.date
         
         if (date == self.todayNormalizedDate) {
             cell.dateLabel.textColor = UIColor.red
@@ -113,7 +113,7 @@ class CWCalendarViewController: UICollectionViewController {
         }
         
         dateFormatter.setLocalizedDateFormatFromTemplate("d")
-        cell.dateLabel.text = dateFormatter.string(from: dateForIndexPath(indexPath).storedDate)
+        cell.dateLabel.text = dateFormatter.string(from: dateForIndexPath(indexPath).date)
         
         return cell
     }
@@ -125,11 +125,11 @@ class CWCalendarViewController: UICollectionViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
         let lastDay = periodAtIndex.dates.count - 1
-        let startMonth = formatter.string(from: periodAtIndex.dates[0].storedDate)
-        let endMonth = formatter.string(from: periodAtIndex.dates[lastDay].storedDate)
+        let startMonth = formatter.string(from: periodAtIndex.dates[0].date)
+        let endMonth = formatter.string(from: periodAtIndex.dates[lastDay].date)
         formatter.dateFormat = "yyyy"
-        let startYear = formatter.string(from: periodAtIndex.dates[0].storedDate)
-        let endYear = formatter.string(from: periodAtIndex.dates[lastDay].storedDate)
+        let startYear = formatter.string(from: periodAtIndex.dates[0].date)
+        let endYear = formatter.string(from: periodAtIndex.dates[lastDay].date)
         
         
         header.sectionLabel.text = "Period \(periodAtIndex.period)"
@@ -142,7 +142,7 @@ class CWCalendarViewController: UICollectionViewController {
     func refreshCalander() {
         let util = CWFiscalDateUtilities()
         self.todayFiscalDate = CWFiscalDate()
-        let today = self.todayFiscalDate.storedDate
+        let today = self.todayFiscalDate.date
         self.todayNormalizedDate = util.getNormalizedDate(today)
         self.collectionView!.reloadData()
     }
@@ -150,10 +150,10 @@ class CWCalendarViewController: UICollectionViewController {
     // MARK: @IBAction
     @IBAction func scrollToTodayButton() {
         let todaysDate = CWFiscalDate()
-        if (self.year.fiscalYear != todaysDate.fiscalYear) {
+        if (self.year.fiscalYear != todaysDate.year) {
             let util = CWFiscalDateUtilities()
             self.year = util.getFiscalYearForFiscalDate(todaysDate)
-            let year = self.year.periods[0].dates[0].fiscalYear
+            let year = self.year.periods[0].dates[0].year
             self.holidays = CWHolidays(fiscalYear: year, country: .US)
             self.collectionView!.reloadData()
             self.navigationItem.title = "FY \(year)"
@@ -166,7 +166,7 @@ class CWCalendarViewController: UICollectionViewController {
         let util = CWFiscalDateUtilities()
         let prevFiscalYear = util.getPreviousYearForFiscalYear(self.year)
         self.year = prevFiscalYear
-        let year = self.year.periods[0].dates[0].fiscalYear
+        let year = self.year.periods[0].dates[0].year
         self.holidays = CWHolidays(fiscalYear: year, country: .US)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"
@@ -183,7 +183,7 @@ class CWCalendarViewController: UICollectionViewController {
         let util = CWFiscalDateUtilities()
         let nextFiscalYear = util.getNextYearForFiscalYear(self.year)
         self.year = nextFiscalYear
-        let year = self.year.periods[0].dates[0].fiscalYear
+        let year = self.year.periods[0].dates[0].year
         self.holidays = CWHolidays(fiscalYear: year, country: .US)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"

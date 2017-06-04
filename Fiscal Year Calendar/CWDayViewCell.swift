@@ -18,7 +18,7 @@ class CWDayViewCell: UICollectionViewCell {
         // http://uicolor.xyz/#/hex-to-ui
         // Helpful site for float values from a hex value.
         let calendar = Calendar.current
-        let components = calendar.dateComponents([.month, .day], from: date.storedDate)
+        let components = calendar.dateComponents([.month, .day], from: date.date)
         let month = components.month
         let monthColor: [UIColor] = [
             UIColor.gray,
