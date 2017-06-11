@@ -15,7 +15,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Setup Template
     
-    func templateCircularSmallRingForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+    func templateCircularSmallRingForData(_ data: CWFiscalDate) -> CLKComplicationTemplateCircularSmallRingText {
         let template = CLKComplicationTemplateCircularSmallRingText()
         template.textProvider = CLKSimpleTextProvider(text: data.periodAsString)
         template.fillFraction = data.fraction
@@ -23,7 +23,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
     }
     
-    func placeholderTemplateCircularSmallRing() -> CLKComplicationTemplate {
+    func placeholderTemplateCircularSmallRing() -> CLKComplicationTemplateCircularSmallRingText {
         let template = CLKComplicationTemplateCircularSmallRingText()
         template.textProvider = CLKSimpleTextProvider(text: "--")
         template.fillFraction = 1.0
@@ -31,7 +31,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
     }
     
-    func templateModularSmallForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+    func templateModularSmallForData(_ data: CWFiscalDate) -> CLKComplicationTemplateModularSmallColumnsText {
         let template = CLKComplicationTemplateModularSmallColumnsText()
         template.row1Column1TextProvider = CLKSimpleTextProvider(text: "PR")
         template.row2Column1TextProvider = CLKSimpleTextProvider(text: "WK")
@@ -40,7 +40,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
     }
     
-    func placeholderTemplateModularSmall() -> CLKComplicationTemplate {
+    func placeholderTemplateModularSmall() -> CLKComplicationTemplateModularSmallColumnsText {
         let template = CLKComplicationTemplateModularSmallColumnsText()
         template.row1Column1TextProvider = CLKSimpleTextProvider(text: "PR")
         template.row2Column1TextProvider = CLKSimpleTextProvider(text: "WK")
@@ -49,7 +49,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
     }
     
-    func templateModularLargeForData(_ data: CWFiscalDate) -> CLKComplicationTemplate {
+    func templateModularLargeForData(_ data: CWFiscalDate) -> CLKComplicationTemplateModularLargeColumns {
         let template = CLKComplicationTemplateModularLargeColumns()
         template.row1Column1TextProvider = CLKSimpleTextProvider(text: "YEAR")
         template.row2Column1TextProvider = CLKSimpleTextProvider(text: "PERIOD")
@@ -60,7 +60,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         return template
     }
     
-    func placeholderTemplateModularLarge() -> CLKComplicationTemplate {
+    func placeholderTemplateModularLarge() -> CLKComplicationTemplateModularLargeColumns {
         let template = CLKComplicationTemplateModularLargeColumns()
         template.row1Column1TextProvider = CLKSimpleTextProvider(text: "YEAR")
         template.row2Column1TextProvider = CLKSimpleTextProvider(text: "PERIOD")
@@ -78,11 +78,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(dataProvider.thirtyDaysData().first!.date)
+        if let dt = self.dataProvider.threeDaysData().first {
+            print(dt.date)
+            handler(dt.date)
+        } else {
+            handler(Date())
+        }
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(dataProvider.thirtyDaysData().last!.date)
+        if let dt = self.dataProvider.threeDaysData().last {
+            print(dt.date)
+            handler(dt.date)
+        } else {
+            handler(Date())
+        }
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -95,11 +105,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var template: CLKComplicationTemplate?
         switch complication.family {
         case .modularSmall:
-            template = templateModularSmallForData(data)
+            template = self.templateModularSmallForData(data)
         case .modularLarge:
-            template = templateModularLargeForData(data)
+            template = self.templateModularLargeForData(data)
         case .circularSmall:
-            template = templateCircularSmallRingForData(data)
+            template = self.templateCircularSmallRingForData(data)
         default:
             template = nil
         }
@@ -107,29 +117,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        if let data = dataProvider.thirtyDaysData().dataForNow() {
-            handler(timelineEntryForData(data, complication: complication))
+        if let data = self.dataProvider.threeDaysData().dataForNow() {
+            handler(self.timelineEntryForData(data, complication: complication))
         } else {
             let dt = Date()
-            handler(CLKComplicationTimelineEntry(date: dt, complicationTemplate: getPlaceholder(for: complication)))
+            handler(CLKComplicationTimelineEntry(date: dt, complicationTemplate: self.getPlaceholder(for: complication)))
         }
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        let entries = dataProvider.thirtyDaysData().filter{
-            date.compare($0.date as Date) == .orderedDescending
-            }.map{
+        let entries = self.dataProvider.threeDaysData().filter{
+                date.compare($0.date as Date) == .orderedDescending
+            }.map {
                 self.timelineEntryForData($0, complication: complication)
-        }
+            }
         handler(entries)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        let entries = dataProvider.thirtyDaysData().filter{
-            date.compare($0.date as Date) == .orderedAscending
-            }.map{
+        let entries = self.dataProvider.threeDaysData().filter{
+                date.compare($0.date as Date) == .orderedAscending
+            }.map {
                 self.timelineEntryForData($0, complication: complication)
-        }
+            }
         handler(entries)
     }
     
@@ -143,11 +153,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         var template: CLKComplicationTemplate?
         switch complication.family {
         case .modularSmall:
-            template = placeholderTemplateModularSmall()
+            template = self.placeholderTemplateModularSmall()
         case .modularLarge:
-            template = placeholderTemplateModularLarge()
+            template = self.placeholderTemplateModularLarge()
         case .circularSmall:
-            template = placeholderTemplateCircularSmallRing()
+            template = self.placeholderTemplateCircularSmallRing()
         default:
             template = nil
         }
@@ -156,17 +166,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        var template: CLKComplicationTemplate?
-        switch complication.family {
-        case .modularSmall:
-            template = placeholderTemplateModularSmall()
-        case .modularLarge:
-            template = placeholderTemplateModularLarge()
-        case .circularSmall:
-            template = placeholderTemplateCircularSmallRing()
-        default:
-            template = nil
-        }
+        let template = self.getPlaceholder(for: complication)
         handler(template)
     }
 }
