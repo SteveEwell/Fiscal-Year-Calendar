@@ -14,6 +14,7 @@ class CWCalendarViewController: UICollectionViewController {
     private let headerReuseIdentifier = "PeriodHeader"
     internal var hasDayHeader = false
     internal var firstView = true
+    public var holidayCountry: HolidayCountry = .US
     public let sectionInsets = UIEdgeInsets(top: 2, left: 1, bottom: 2, right: 1)
     private var year: CWFiscalYear!
     private var holidays: CWHolidays!
@@ -29,7 +30,7 @@ class CWCalendarViewController: UICollectionViewController {
         self.year = util.fiscalYear(for: self.todayFiscalDate)
         let today = Date()
         self.todayNormalizedDate = util.getNormalizedDate(today)
-        self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: .US)
+        self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: self.holidayCountry)
         
         // Set up the days of the week header.
         if !self.hasDayHeader {
@@ -152,7 +153,7 @@ class CWCalendarViewController: UICollectionViewController {
             let util = CWFiscalDateUtilities()
             self.year = util.fiscalYear(for: todaysDate)
             let year = self.year.periods[0].dates[0].year
-            self.holidays = CWHolidays(fiscalYear: year, country: .US)
+            self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
             self.collectionView!.reloadData()
             self.navigationItem.title = "FY \(year)"
         }
@@ -165,7 +166,7 @@ class CWCalendarViewController: UICollectionViewController {
         let prevFiscalYear = util.previousYear(for: self.year)
         self.year = prevFiscalYear
         let year = self.year.periods[0].dates[0].year
-        self.holidays = CWHolidays(fiscalYear: year, country: .US)
+        self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"
         self.scrollTo(0, section: 0)
@@ -182,7 +183,7 @@ class CWCalendarViewController: UICollectionViewController {
         let nextFiscalYear = util.nextYear(for: self.year)
         self.year = nextFiscalYear
         let year = self.year.periods[0].dates[0].year
-        self.holidays = CWHolidays(fiscalYear: year, country: .US)
+        self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"
         self.scrollTo(0, section: 0)
