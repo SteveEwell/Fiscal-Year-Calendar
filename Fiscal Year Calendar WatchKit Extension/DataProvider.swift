@@ -22,16 +22,16 @@ extension Collection where Iterator.Element: FiscalDate {
 }
 
 struct DataProvider {
-    func threeDaysData() -> [CWFiscalDate] {
+    func thirtyDaysData() -> [CWFiscalDate] {
         let now = CWFiscalDate()
         let calendar: Calendar = Calendar.current
         var offset = DateComponents()
-        offset.day = 0 - 1
+        offset.day = 0 - 15
         let startDate = calendar.date(byAdding: offset, to: now.date)
         let startFiscalDate = CWFiscalDate(from: startDate!)
         var datesArray = [CWFiscalDate]()
         datesArray.append(startFiscalDate)
-        for i in 1..<3 {
+        for i in 1..<30 {
             offset.day = i
             let nextDay = calendar.date(byAdding: offset, to: startDate!)
             let nextFiscalDay = CWFiscalDate(from: nextDay!)
