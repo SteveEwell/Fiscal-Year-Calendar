@@ -110,10 +110,13 @@ public struct CWFiscalDate: FiscalDate {
     - Parameter calendarDate: The Date object used to derive the fiscal date.
     */
     private mutating func fiscalDate(from calendarDate: Date) {
-        let dateFormat = DateFormatter()
-        dateFormat.setLocalizedDateFormatFromTemplate("MMddyy")
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        var components = DateComponents()
+        components.day = 5
+        components.month = 10
+        components.year = 1970
         
-        let baseDate = dateFormat.date(from: "10/5/1970")
+        let baseDate = cal.date(from: components)
         let baseFiscalYear = 1971
         let daysInFiscalWeek = 7
         let daysInFiscalPeriod = 28
