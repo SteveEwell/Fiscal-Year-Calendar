@@ -36,6 +36,15 @@
 		6E10BE8E1EBF779300F51F59 /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */; };
 		6E10BE8F1EBF779700F51F59 /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */; };
 		6E10BE941EBF789500F51F59 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE921EBF789500F51F59 /* Interface.storyboard */; };
+		6E259F7D1F25051A00620CB4 /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */; };
+		6E259F7E1F25051D00620CB4 /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */; };
+		6E259F7F1F25052000620CB4 /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */; };
+		6E259F801F25052400620CB4 /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */; };
+		6E259F811F25052800620CB4 /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */; };
+		6E30E15B1F23D13100F9BBCA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E30E15A1F23D13100F9BBCA /* NotificationCenter.framework */; };
+		6E30E15E1F23D13100F9BBCA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30E15D1F23D13100F9BBCA /* TodayViewController.swift */; };
+		6E30E1611F23D13100F9BBCA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E30E15F1F23D13100F9BBCA /* MainInterface.storyboard */; };
+		6E30E1651F23D13100F9BBCA /* Fiscal Date Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6E5D0A7E1ED08350001B3C74 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */; };
 		6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6270A61ED9DDB200DAE00D /* Utilities.swift */; };
 		6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
@@ -72,6 +81,13 @@
 			remoteGlobalIDString = 6E10BE421EBF69DC00F51F59;
 			remoteInfo = "Fiscal Year Calendar WatchKit Extension";
 		};
+		6E30E1631F23D13100F9BBCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E10BE041EBF69DC00F51F59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E30E1571F23D13100F9BBCA;
+			remoteInfo = "Fiscal Date Today";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +111,17 @@
 				6E10BE351EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30E1691F23D13100F9BBCA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6E30E1651F23D13100F9BBCA /* Fiscal Date Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -133,6 +160,11 @@
 		6E10BE831EBF702D00F51F59 /* CWDayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDayViewCell.swift; sourceTree = "<group>"; };
 		6E10BE841EBF702D00F51F59 /* CWPeriodSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPeriodSectionHeader.swift; sourceTree = "<group>"; };
 		6E10BE931EBF789500F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Fiscal Date Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E30E15A1F23D13100F9BBCA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		6E30E15D1F23D13100F9BBCA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		6E30E1601F23D13100F9BBCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		6E30E1621F23D13100F9BBCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		6E6270A61ED9DDB200DAE00D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6E9A66631EDB532900FB954B /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWHoliday.swift; path = "Fiscal Year Calendar/CWHoliday/CWHoliday.swift"; sourceTree = "<group>"; };
@@ -168,6 +200,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E30E1551F23D13100F9BBCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30E15B1F23D13100F9BBCA /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -180,6 +220,8 @@
 				6E10BE2E1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */,
 				6E10BE381EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */,
 				6E10BE471EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */,
+				6E30E15C1F23D13100F9BBCA /* Fiscal Date Today */,
+				6E30E1591F23D13100F9BBCA /* Frameworks */,
 				6E10BE0D1EBF69DC00F51F59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -192,6 +234,7 @@
 				6E10BE2B1EBF69DC00F51F59 /* Fiscal Year CalendarUITests.xctest */,
 				6E10BE341EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App.app */,
 				6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */,
+				6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,6 +329,24 @@
 			name = CWFiscalDate;
 			sourceTree = "<group>";
 		};
+		6E30E1591F23D13100F9BBCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E30E15A1F23D13100F9BBCA /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E30E15C1F23D13100F9BBCA /* Fiscal Date Today */ = {
+			isa = PBXGroup;
+			children = (
+				6E30E15D1F23D13100F9BBCA /* TodayViewController.swift */,
+				6E30E15F1F23D13100F9BBCA /* MainInterface.storyboard */,
+				6E30E1621F23D13100F9BBCA /* Info.plist */,
+			);
+			path = "Fiscal Date Today";
+			sourceTree = "<group>";
+		};
 		6E816DF61EDB10E5000BC14C /* CWHoliday */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,11 +366,13 @@
 				6E10BE091EBF69DC00F51F59 /* Frameworks */,
 				6E10BE0A1EBF69DC00F51F59 /* Resources */,
 				6E10BE5E1EBF69DC00F51F59 /* Embed Watch Content */,
+				6E30E1691F23D13100F9BBCA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6E10BE371EBF69DC00F51F59 /* PBXTargetDependency */,
+				6E30E1641F23D13100F9BBCA /* PBXTargetDependency */,
 			);
 			name = "Fiscal Year Calendar";
 			productName = "Fiscal Year Calendar";
@@ -386,6 +449,23 @@
 			productReference = 6E10BE431EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		6E30E1571F23D13100F9BBCA /* Fiscal Date Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E30E1681F23D13100F9BBCA /* Build configuration list for PBXNativeTarget "Fiscal Date Today" */;
+			buildPhases = (
+				6E30E1541F23D13100F9BBCA /* Sources */,
+				6E30E1551F23D13100F9BBCA /* Frameworks */,
+				6E30E1561F23D13100F9BBCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fiscal Date Today";
+			productName = "Fiscal Date Today";
+			productReference = 6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -423,6 +503,11 @@
 						DevelopmentTeam = ES947SD9KT;
 						ProvisioningStyle = Automatic;
 					};
+					6E30E1571F23D13100F9BBCA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = ES947SD9KT;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 6E10BE071EBF69DC00F51F59 /* Build configuration list for PBXProject "Fiscal Year Calendar" */;
@@ -443,6 +528,7 @@
 				6E10BE2A1EBF69DC00F51F59 /* Fiscal Year CalendarUITests */,
 				6E10BE331EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit App */,
 				6E10BE421EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */,
+				6E30E1571F23D13100F9BBCA /* Fiscal Date Today */,
 			);
 		};
 /* End PBXProject section */
@@ -486,6 +572,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E10BE531EBF69DC00F51F59 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E30E1561F23D13100F9BBCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E30E1611F23D13100F9BBCA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +640,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6E30E1541F23D13100F9BBCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E259F801F25052400620CB4 /* CWFiscalPeriod.swift in Sources */,
+				6E259F7F1F25052000620CB4 /* CWFiscalDateUtilities.swift in Sources */,
+				6E259F811F25052800620CB4 /* CWFiscalYear.swift in Sources */,
+				6E30E15E1F23D13100F9BBCA /* TodayViewController.swift in Sources */,
+				6E259F7D1F25051A00620CB4 /* CWFiscalDate.swift in Sources */,
+				6E259F7E1F25051D00620CB4 /* CWFiscalDateFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -568,6 +675,11 @@
 			isa = PBXTargetDependency;
 			target = 6E10BE421EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */;
 			targetProxy = 6E10BE451EBF69DC00F51F59 /* PBXContainerItemProxy */;
+		};
+		6E30E1641F23D13100F9BBCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E30E1571F23D13100F9BBCA /* Fiscal Date Today */;
+			targetProxy = 6E30E1631F23D13100F9BBCA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -594,6 +706,14 @@
 				6E10BE931EBF789500F51F59 /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		6E30E15F1F23D13100F9BBCA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E30E1601F23D13100F9BBCA /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -767,6 +887,7 @@
 		6E10BE601EBF69DC00F51F59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ES947SD9KT;
 				INFOPLIST_FILE = "Fiscal Year Calendar/Info.plist";
@@ -780,6 +901,7 @@
 		6E10BE611EBF69DC00F51F59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ES947SD9KT;
 				INFOPLIST_FILE = "Fiscal Year Calendar/Info.plist";
@@ -848,6 +970,32 @@
 			};
 			name = Release;
 		};
+		6E30E1661F23D13100F9BBCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Date Today/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.Fiscal-Date-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6E30E1671F23D13100F9BBCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ES947SD9KT;
+				INFOPLIST_FILE = "Fiscal Date Today/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.ewell.Fiscal-Year-Calendar.Fiscal-Date-Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -901,6 +1049,15 @@
 			buildConfigurations = (
 				6E10BE661EBF69DC00F51F59 /* Debug */,
 				6E10BE671EBF69DC00F51F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E30E1681F23D13100F9BBCA /* Build configuration list for PBXNativeTarget "Fiscal Date Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E30E1661F23D13100F9BBCA /* Debug */,
+				6E30E1671F23D13100F9BBCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
