@@ -175,7 +175,7 @@ public class CWFiscalDateUtilities {
         return previousYear
     }
 
-    public func isFutureDate(_ date: Date) -> Bool {
+    @objc public func isFutureDate(_ date: Date) -> Bool {
         let now = Date()
         let futureDate = (now as NSDate).laterDate(date)
         let pastDate = (now as NSDate).earlierDate(date)
