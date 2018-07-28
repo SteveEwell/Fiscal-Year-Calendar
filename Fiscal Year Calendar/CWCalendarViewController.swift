@@ -36,7 +36,18 @@ class CWCalendarViewController: UICollectionViewController {
         if !self.hasDayHeader {
             self.collectionView?.contentInset.top = 44
             let navBarFrame = self.navigationController!.navigationBar.frame
-            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
+            var headerOffset = 0.0
+            if UIDevice().userInterfaceIdiom == .phone {
+                switch UIScreen.main.nativeBounds.height {
+                case 2436:
+                    headerOffset = 43.9
+                default:
+                    headerOffset = 19.9
+                }
+            } else {
+                headerOffset = 19.9
+            }
+            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - CGFloat(headerOffset)), width: CGFloat(self.view.frame.size.width) , height: 44))
             daysHeaderView.blurTintColor = UIColor.white
             self.navigationController?.navigationBar.addSubview(daysHeaderView)
             self.hasDayHeader = true
@@ -56,7 +67,18 @@ class CWCalendarViewController: UICollectionViewController {
         if !self.hasDayHeader {
             self.collectionView?.contentInset.top = 44
             let navBarFrame = self.navigationController!.navigationBar.frame
-            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - 19.9), width: CGFloat(self.view.frame.size.width) , height: 44))
+            var headerOffset = 0.0
+            if UIDevice().userInterfaceIdiom == .phone {
+                switch UIScreen.main.nativeBounds.height {
+                case 2436:
+                    headerOffset = 43.9
+                default:
+                    headerOffset = 19.9
+                }
+            } else {
+                headerOffset = 19.9
+            }
+            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - CGFloat(headerOffset)), width: CGFloat(self.view.frame.size.width) , height: 44))
             daysHeaderView.blurTintColor = UIColor.white
             self.navigationController?.navigationBar.addSubview(daysHeaderView)
             self.hasDayHeader = true

@@ -20,35 +20,48 @@
 		6E10BE4F1EBF69DC00F51F59 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE4E1EBF69DC00F51F59 /* NotificationController.swift */; };
 		6E10BE511EBF69DC00F51F59 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE501EBF69DC00F51F59 /* ComplicationController.swift */; };
 		6E10BE531EBF69DC00F51F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE521EBF69DC00F51F59 /* Assets.xcassets */; };
-		6E10BE6F1EBF6E6200F51F59 /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */; };
-		6E10BE701EBF6E6200F51F59 /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */; };
-		6E10BE711EBF6E6200F51F59 /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */; };
-		6E10BE721EBF6E6200F51F59 /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */; };
-		6E10BE731EBF6E6200F51F59 /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */; };
 		6E10BE761EBF6F0F00F51F59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE741EBF6F0F00F51F59 /* Main.storyboard */; };
 		6E10BE851EBF702D00F51F59 /* CWCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE811EBF702D00F51F59 /* CWCalendarViewController.swift */; };
 		6E10BE861EBF702D00F51F59 /* CWDaysHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE821EBF702D00F51F59 /* CWDaysHeaderView.swift */; };
 		6E10BE871EBF702D00F51F59 /* CWDayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE831EBF702D00F51F59 /* CWDayViewCell.swift */; };
 		6E10BE881EBF702D00F51F59 /* CWPeriodSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE841EBF702D00F51F59 /* CWPeriodSectionHeader.swift */; };
-		6E10BE8B1EBF778900F51F59 /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */; };
-		6E10BE8C1EBF778C00F51F59 /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */; };
-		6E10BE8D1EBF779000F51F59 /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */; };
-		6E10BE8E1EBF779300F51F59 /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */; };
-		6E10BE8F1EBF779700F51F59 /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */; };
 		6E10BE941EBF789500F51F59 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E10BE921EBF789500F51F59 /* Interface.storyboard */; };
-		6E259F7D1F25051A00620CB4 /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */; };
-		6E259F7E1F25051D00620CB4 /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */; };
-		6E259F7F1F25052000620CB4 /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */; };
-		6E259F801F25052400620CB4 /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */; };
-		6E259F811F25052800620CB4 /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */; };
+		6E20DDAB210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */; };
+		6E20DDAC210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */; };
+		6E20DDAD210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */; };
+		6E20DDAE210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */; };
+		6E20DDAF210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */; };
+		6E20DDB0210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */; };
+		6E20DDB1210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */; };
+		6E20DDB2210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */; };
+		6E20DDB3210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */; };
+		6E20DDB4210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */; };
+		6E20DDB5210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */; };
+		6E20DDB6210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */; };
+		6E20DDB7210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */; };
+		6E20DDB8210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */; };
+		6E20DDB9210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */; };
+		6E20DDBA210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */; };
+		6E20DDBB210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */; };
+		6E20DDBC210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */; };
+		6E20DDBD210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */; };
+		6E20DDBE210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */; };
+		6E20DDBF210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */; };
+		6E20DDC0210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */; };
+		6E20DDC1210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */; };
+		6E20DDC2210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */; };
+		6E20DDC3210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */; };
+		6E20DDC4210CC5CD00ACE73F /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */; };
+		6E20DDC5210CC5CD00ACE73F /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */; };
+		6E20DDC6210CC5CD00ACE73F /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */; };
+		6E20DDC7210CC5CD00ACE73F /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */; };
+		6E20DDC8210CC5CD00ACE73F /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */; };
 		6E30E15B1F23D13100F9BBCA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E30E15A1F23D13100F9BBCA /* NotificationCenter.framework */; };
 		6E30E15E1F23D13100F9BBCA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E30E15D1F23D13100F9BBCA /* TodayViewController.swift */; };
 		6E30E1611F23D13100F9BBCA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E30E15F1F23D13100F9BBCA /* MainInterface.storyboard */; };
 		6E30E1651F23D13100F9BBCA /* Fiscal Date Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6E5D0A7E1ED08350001B3C74 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */; };
+		6E5D0A7E1ED08350001B3C74 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D0A7D1ED08350001B3C74 /* ClassExtensions.swift */; };
 		6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6270A61ED9DDB200DAE00D /* Utilities.swift */; };
-		6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
-		6E9A66651EDB532900FB954B /* CWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9A66631EDB532900FB954B /* CWHoliday.swift */; };
 		6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -149,25 +162,25 @@
 		6E10BE501EBF69DC00F51F59 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		6E10BE521EBF69DC00F51F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E10BE541EBF69DC00F51F59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWFiscalDate.swift; path = "Fiscal Year Calendar/CWFiscalDate/CWFiscalDate.swift"; sourceTree = "<group>"; };
-		6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWFiscalDateFormatter.swift; path = "Fiscal Year Calendar/CWFiscalDate/CWFiscalDateFormatter.swift"; sourceTree = "<group>"; };
-		6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWFiscalDateUtilities.swift; path = "Fiscal Year Calendar/CWFiscalDate/CWFiscalDateUtilities.swift"; sourceTree = "<group>"; };
-		6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWFiscalPeriod.swift; path = "Fiscal Year Calendar/CWFiscalDate/CWFiscalPeriod.swift"; sourceTree = "<group>"; };
-		6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWFiscalYear.swift; path = "Fiscal Year Calendar/CWFiscalDate/CWFiscalYear.swift"; sourceTree = "<group>"; };
 		6E10BE751EBF6F0F00F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E10BE811EBF702D00F51F59 /* CWCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWCalendarViewController.swift; sourceTree = "<group>"; };
 		6E10BE821EBF702D00F51F59 /* CWDaysHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDaysHeaderView.swift; sourceTree = "<group>"; };
 		6E10BE831EBF702D00F51F59 /* CWDayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDayViewCell.swift; sourceTree = "<group>"; };
 		6E10BE841EBF702D00F51F59 /* CWPeriodSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPeriodSectionHeader.swift; sourceTree = "<group>"; };
 		6E10BE931EBF789500F51F59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFiscalDateFormatter.swift; sourceTree = "<group>"; };
+		6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFiscalDateUtilities.swift; sourceTree = "<group>"; };
+		6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFiscalYear.swift; sourceTree = "<group>"; };
+		6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFiscalDate.swift; sourceTree = "<group>"; };
+		6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWFiscalPeriod.swift; sourceTree = "<group>"; };
+		6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWHoliday.swift; sourceTree = "<group>"; };
 		6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Fiscal Date Today.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E30E15A1F23D13100F9BBCA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		6E30E15D1F23D13100F9BBCA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		6E30E1601F23D13100F9BBCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6E30E1621F23D13100F9BBCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		6E5D0A7D1ED08350001B3C74 /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
 		6E6270A61ED9DDB200DAE00D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		6E9A66631EDB532900FB954B /* CWHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CWHoliday.swift; path = "Fiscal Year Calendar/CWHoliday/CWHoliday.swift"; sourceTree = "<group>"; };
 		6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDayDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,7 +301,7 @@
 		6E10BE471EBF69DC00F51F59 /* Fiscal Year Calendar WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				6E5D0A7D1ED08350001B3C74 /* DataProvider.swift */,
+				6E5D0A7D1ED08350001B3C74 /* ClassExtensions.swift */,
 				6E10BE4A1EBF69DC00F51F59 /* InterfaceController.swift */,
 				6E10BE4C1EBF69DC00F51F59 /* ExtensionDelegate.swift */,
 				6E10BE4E1EBF69DC00F51F59 /* NotificationController.swift */,
@@ -311,22 +324,32 @@
 		6E10BE681EBF6DF800F51F59 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				6E816DF61EDB10E5000BC14C /* CWHoliday */,
-				6E10BE691EBF6E2800F51F59 /* CWFiscalDate */,
+				6E20DDA3210CC5CD00ACE73F /* CWFiscalDate */,
+				6E20DDA9210CC5CD00ACE73F /* CWHoliday */,
 			);
 			name = Common;
 			sourceTree = "<group>";
 		};
-		6E10BE691EBF6E2800F51F59 /* CWFiscalDate */ = {
+		6E20DDA3210CC5CD00ACE73F /* CWFiscalDate */ = {
 			isa = PBXGroup;
 			children = (
-				6E10BE6A1EBF6E6200F51F59 /* CWFiscalDate.swift */,
-				6E10BE6B1EBF6E6200F51F59 /* CWFiscalDateFormatter.swift */,
-				6E10BE6C1EBF6E6200F51F59 /* CWFiscalDateUtilities.swift */,
-				6E10BE6D1EBF6E6200F51F59 /* CWFiscalPeriod.swift */,
-				6E10BE6E1EBF6E6200F51F59 /* CWFiscalYear.swift */,
+				6E20DDA4210CC5CD00ACE73F /* CWFiscalDateFormatter.swift */,
+				6E20DDA5210CC5CD00ACE73F /* CWFiscalDateUtilities.swift */,
+				6E20DDA6210CC5CD00ACE73F /* CWFiscalYear.swift */,
+				6E20DDA7210CC5CD00ACE73F /* CWFiscalDate.swift */,
+				6E20DDA8210CC5CD00ACE73F /* CWFiscalPeriod.swift */,
 			);
 			name = CWFiscalDate;
+			path = Common/CWFiscalDate;
+			sourceTree = "<group>";
+		};
+		6E20DDA9210CC5CD00ACE73F /* CWHoliday */ = {
+			isa = PBXGroup;
+			children = (
+				6E20DDAA210CC5CD00ACE73F /* CWHoliday.swift */,
+			);
+			name = CWHoliday;
+			path = Common/CWHoliday;
 			sourceTree = "<group>";
 		};
 		6E30E1591F23D13100F9BBCA /* Frameworks */ = {
@@ -345,14 +368,6 @@
 				6E30E1621F23D13100F9BBCA /* Info.plist */,
 			);
 			path = "Fiscal Date Today";
-			sourceTree = "<group>";
-		};
-		6E816DF61EDB10E5000BC14C /* CWHoliday */ = {
-			isa = PBXGroup;
-			children = (
-				6E9A66631EDB532900FB954B /* CWHoliday.swift */,
-			);
-			name = CWHoliday;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +488,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Stephen Ewell";
 				TargetAttributes = {
 					6E10BE0B1EBF69DC00F51F59 = {
@@ -595,19 +610,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E20DDB5210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */,
 				6E10BE861EBF702D00F51F59 /* CWDaysHeaderView.swift in Sources */,
 				6E10BE851EBF702D00F51F59 /* CWCalendarViewController.swift in Sources */,
+				6E20DDBA210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */,
 				6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */,
 				6E10BE871EBF702D00F51F59 /* CWDayViewCell.swift in Sources */,
-				6E10BE721EBF6E6200F51F59 /* CWFiscalPeriod.swift in Sources */,
-				6E10BE701EBF6E6200F51F59 /* CWFiscalDateFormatter.swift in Sources */,
-				6E9A66641EDB532900FB954B /* CWHoliday.swift in Sources */,
-				6E10BE711EBF6E6200F51F59 /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDBF210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */,
+				6E20DDAB210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */,
 				6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */,
+				6E20DDB0210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDC4210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
 				6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */,
 				6E10BE881EBF702D00F51F59 /* CWPeriodSectionHeader.swift in Sources */,
-				6E10BE731EBF6E6200F51F59 /* CWFiscalYear.swift in Sources */,
-				6E10BE6F1EBF6E6200F51F59 /* CWFiscalDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +630,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E20DDC0210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */,
+				6E20DDB1210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDAC210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */,
+				6E20DDB6210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */,
+				6E20DDC5210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
+				6E20DDBB210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */,
 				6E10BE251EBF69DC00F51F59 /* Fiscal_Year_CalendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +644,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E20DDC1210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */,
+				6E20DDB2210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDAD210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */,
+				6E20DDB7210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */,
+				6E20DDC6210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
+				6E20DDBC210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */,
 				6E10BE301EBF69DC00F51F59 /* Fiscal_Year_CalendarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,17 +658,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E10BE8D1EBF779000F51F59 /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDC2210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */,
+				6E20DDB3210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
 				6E10BE4F1EBF69DC00F51F59 /* NotificationController.swift in Sources */,
-				6E5D0A7E1ED08350001B3C74 /* DataProvider.swift in Sources */,
+				6E20DDBD210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */,
+				6E20DDC7210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
+				6E20DDB8210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */,
+				6E5D0A7E1ED08350001B3C74 /* ClassExtensions.swift in Sources */,
+				6E20DDAE210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */,
 				6E10BE511EBF69DC00F51F59 /* ComplicationController.swift in Sources */,
-				6E9A66651EDB532900FB954B /* CWHoliday.swift in Sources */,
-				6E10BE8C1EBF778C00F51F59 /* CWFiscalDateFormatter.swift in Sources */,
 				6E10BE4D1EBF69DC00F51F59 /* ExtensionDelegate.swift in Sources */,
-				6E10BE8B1EBF778900F51F59 /* CWFiscalDate.swift in Sources */,
-				6E10BE8E1EBF779300F51F59 /* CWFiscalPeriod.swift in Sources */,
 				6E10BE4B1EBF69DC00F51F59 /* InterfaceController.swift in Sources */,
-				6E10BE8F1EBF779700F51F59 /* CWFiscalYear.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,12 +676,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E259F801F25052400620CB4 /* CWFiscalPeriod.swift in Sources */,
-				6E259F7F1F25052000620CB4 /* CWFiscalDateUtilities.swift in Sources */,
-				6E259F811F25052800620CB4 /* CWFiscalYear.swift in Sources */,
+				6E20DDC3210CC5CD00ACE73F /* CWFiscalPeriod.swift in Sources */,
+				6E20DDB4210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
+				6E20DDAF210CC5CD00ACE73F /* CWFiscalDateFormatter.swift in Sources */,
+				6E20DDB9210CC5CD00ACE73F /* CWFiscalYear.swift in Sources */,
+				6E20DDC8210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
+				6E20DDBE210CC5CD00ACE73F /* CWFiscalDate.swift in Sources */,
 				6E30E15E1F23D13100F9BBCA /* TodayViewController.swift in Sources */,
-				6E259F7D1F25051A00620CB4 /* CWFiscalDate.swift in Sources */,
-				6E259F7E1F25051D00620CB4 /* CWFiscalDateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +766,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -745,6 +774,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -771,7 +801,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -797,6 +827,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -804,6 +835,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -824,7 +856,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

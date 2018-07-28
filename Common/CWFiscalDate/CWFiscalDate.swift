@@ -17,6 +17,25 @@ protocol FiscalDate {
     var day: Int {get}
 }
 
+private struct FiscalUnit {
+    let current: Int
+    let remainderAsDays: Double
+}
+
+private class AdjustedUnits {
+    var year: Int
+    var period: Int
+    var week: Int
+    var yearsDiff: Int
+    
+    init(year: Int, period: Int, week: Int, yearsDiff: Int) {
+        self.year = year
+        self.period = period
+        self.week = week
+        self.yearsDiff = yearsDiff
+    }
+}
+
 /// The fiscal date for a given calendar date.
 public struct CWFiscalDate: FiscalDate {
     /// Calendar date that the fiscal date is derived from.
@@ -103,6 +122,102 @@ public struct CWFiscalDate: FiscalDate {
         
         self.fiscalDate(from: normalizedDate!)
     }
+    
+    private func getYearUnit(calendarDate: Date) -> FiscalUnit {
+        let daysInFiscalYear = 364
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        var components = DateComponents()
+        
+        components.day = 5
+        components.month = 10
+        components.year = 1970
+        
+        let baseDate = cal.date(from: components)
+        let daysDiff = calendarDate.timeIntervalSince(baseDate!) / Double(24 * 60 * 60)
+        let years = Double(daysDiff) / Double(daysInFiscalYear)
+        let year = Int(years) + 1971 // 1971 is starting year.
+        let yearsRemainder = years - Double(Int(years))
+        let yearsRemainderAsDays = round(yearsRemainder * Double(daysInFiscalYear))
+        
+        return FiscalUnit(current: year, remainderAsDays: yearsRemainderAsDays)
+        
+    }
+    
+    private func getPeriodUnit(year: FiscalUnit) -> FiscalUnit {
+        let daysInFiscalPeriod = 28
+        
+        let periods = Double(year.remainderAsDays) / Double(daysInFiscalPeriod)
+        let period = Int(periods) + 1
+        let periodsRemainder = periods - Double(Int(periods))
+        let periodsRemainderAsDays = round(periodsRemainder * Double(daysInFiscalPeriod))
+        
+        return FiscalUnit(current: period, remainderAsDays: periodsRemainderAsDays)
+    }
+    
+    private func getWeekUnit(period: FiscalUnit) -> FiscalUnit {
+        let daysInFiscalWeek = 7
+        
+        let weeks = Double(period.remainderAsDays) / Double(daysInFiscalWeek)
+        let week = Int(weeks) + 1
+        let weeksRemainder = weeks - Double(Int(weeks))
+        let weeksRemainderAsDays = (weeksRemainder * Double(daysInFiscalWeek))
+        
+        return FiscalUnit(current: week, remainderAsDays: weeksRemainderAsDays)
+    }
+    
+    private func isInFithWeek(unit: AdjustedUnits) -> Bool {
+        if (unit.week <= 0 && unit.period == 1 && unit.yearsDiff == 1) {
+            return true
+        }
+        
+        return false
+    }
+    
+    private func fithWeekUnit(unit: AdjustedUnits) -> AdjustedUnits {
+        unit.year -= 1
+        unit.yearsDiff -= 1
+        unit.period = 13
+        unit.week = 5
+        
+        return unit
+    }
+    
+    private func adjustDateOffset(unit: inout AdjustedUnits) {
+        
+        // Set to last week of the period
+        if (unit.week <= 0) {
+            unit.period -= 1
+            unit.week = 4
+        }
+        
+        // set to the last period of the year
+        if (unit.period <= 0) {
+            unit.year -= 1
+            unit.period = 13
+            unit.yearsDiff -= 1
+        }
+    }
+    
+    private func extraWeekAdustment(year: Int, period: Int, week: Int) -> AdjustedUnits {
+        let baseYear = 1999
+        var adjUnit = AdjustedUnits(year: year, period: period, week: week, yearsDiff: year - baseYear)
+        
+        if (adjUnit.year > baseYear) {
+            while (adjUnit.yearsDiff > 0) {
+                adjUnit.week -= 1
+                
+                if (self.isInFithWeek(unit: adjUnit)) {
+                    return self.fithWeekUnit(unit: adjUnit)
+                } else {
+                    self.adjustDateOffset(unit: &adjUnit)
+                }
+                
+                adjUnit.yearsDiff -= 6 //  base extra week interval
+            }
+        }
+        
+        return adjUnit
+    }
 
     /**
     Sets all the properties for the fiscal date based on a Date object.
@@ -110,66 +225,16 @@ public struct CWFiscalDate: FiscalDate {
     - Parameter calendarDate: The Date object used to derive the fiscal date.
     */
     private mutating func fiscalDate(from calendarDate: Date) {
-        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        var components = DateComponents()
-        components.day = 5
-        components.month = 10
-        components.year = 1970
+        let year = self.getYearUnit(calendarDate: calendarDate)
+        let period = self.getPeriodUnit(year: year)
+        let week = self.getWeekUnit(period: period)
+        let adustedDate = self.extraWeekAdustment(year: year.current, period: period.current, week: week.current)
         
-        let baseDate = cal.date(from: components)
-        let baseFiscalYear = 1971
-        let daysInFiscalWeek = 7
-        let daysInFiscalPeriod = 28
-        let daysInFiscalYear = 364
-        let baseExtraWeekFiscalYear = 1999
-        let baseExtraWeekInterval = 6
-        
-        
-        let daysDiff = calendarDate.timeIntervalSince(baseDate!) / Double(24 * 60 * 60)
-        let years = Double(daysDiff) / Double(daysInFiscalYear)
-        self.year = Int(years) + baseFiscalYear
-        let yearsRemainder = years - Double(Int(years))
-        let yearsRemainderAsDays = round(yearsRemainder * Double(daysInFiscalYear))
-        
-        let periods = Double(yearsRemainderAsDays) / Double(daysInFiscalPeriod)
-        self.period = Int(periods) + 1
-        let periodsRemainder = periods - Double(Int(periods))
-        let periodsRemainderAsDays = round(periodsRemainder * Double(daysInFiscalPeriod))
-        
-        let weeks = Double(periodsRemainderAsDays) / Double(daysInFiscalWeek)
-        self.week = Int(weeks) + 1
-        let weeksRemainder = weeks - Double(Int(weeks))
-        let weeksRemainderAsDays = (weeksRemainder * Double(daysInFiscalWeek))
-        
-        if (self.year > baseExtraWeekFiscalYear) {
-            let baseYear = baseExtraWeekFiscalYear
-            var yearsDiff = self.year - baseYear
-            while (yearsDiff > 0) {
-                self.week -= 1
-                if (self.week <= 0 && self.period == 1 && yearsDiff == 1) {
-                    self.year -= 1
-                    yearsDiff -= 1
-                    self.period = 13
-                    self.week = 5
-                    break
-                } else {
-                    if (self.week <= 0) {
-                        self.period -= 1
-                        self.week = 4
-                    }
-                    
-                    if (self.period <= 0) {
-                        self.year -= 1
-                        self.period = 13
-                        yearsDiff -= 1
-                    }
-                }
-                yearsDiff -= baseExtraWeekInterval
-            }
-        }
-        
+        self.year = adustedDate.year
+        self.period = adustedDate.period
+        self.week = adustedDate.week
+        self.day = Int(round(week.remainderAsDays)) + 1
         self.date = calendarDate
-        self.day = Int(round(weeksRemainderAsDays)) + 1
         self.setQuarter()
     }
 

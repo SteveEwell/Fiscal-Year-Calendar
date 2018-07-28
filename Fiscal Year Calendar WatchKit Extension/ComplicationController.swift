@@ -11,8 +11,6 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
-    let dataProvider = DataProvider()
-    
     // MARK: - Setup Template
     
     func templateCircularSmallRingForData(_ data: CWFiscalDate) -> CLKComplicationTemplateCircularSmallRingText {
@@ -78,21 +76,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        if let dt = self.dataProvider.thirtyDaysData().first {
-            print(dt.date)
-            handler(dt.date)
-        } else {
-            handler(Date())
-        }
+        handler(nil)
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        if let dt = self.dataProvider.thirtyDaysData().last {
-            print(dt.date)
-            handler(dt.date)
-        } else {
-            handler(Date())
-        }
+        handler(nil)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -117,34 +105,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        if let data = self.dataProvider.thirtyDaysData().dataForNow() {
-            handler(self.timelineEntryForData(data, complication: complication))
-        } else {
-            let dt = Date()
-            handler(CLKComplicationTimelineEntry(date: dt, complicationTemplate: self.getPlaceholder(for: complication)))
-        }
+        let data = CWFiscalDate()
+        handler(self.timelineEntryForData(data, complication: complication))
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        let entries = self.dataProvider.thirtyDaysData().filter{
-                date.compare($0.date as Date) == .orderedDescending
-            }.map {
-                self.timelineEntryForData($0, complication: complication)
-            }
-        handler(entries)
+        handler(nil)
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        let entries = self.dataProvider.thirtyDaysData().filter{
-                date.compare($0.date as Date) == .orderedAscending
-            }.map {
-                self.timelineEntryForData($0, complication: complication)
-            }
-        handler(entries)
-    }
-    
-    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
-        handler(Date.endOfToday());
+        handler(nil)
     }
     
     // MARK: - Placeholder Templates
