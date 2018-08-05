@@ -228,7 +228,7 @@ class CWHolidays {
 
         if (self.canadaDayObservedMonday(year: year)) {
             let dateObserved = self.dayOfMonthHoliday(year: year, month: 7, day: 2)
-            let holidayObserved = CWHoliday(date: dateObserved, country: country, name: "Canada Day (Observed)", open: false)
+            let holidayObserved = CWHoliday(date: dateObserved, country: country, name: "Canada Day (Observed)", open: true)
             self.holidays.append(holidayObserved)
         }
     }

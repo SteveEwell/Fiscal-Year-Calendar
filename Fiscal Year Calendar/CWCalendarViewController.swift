@@ -30,6 +30,7 @@ class CWCalendarViewController: UICollectionViewController {
         self.year = util.fiscalYear(for: self.todayFiscalDate)
         let today = Date()
         self.todayNormalizedDate = util.getNormalizedDate(today)
+        self.holidayCountry = self.getCurrentCountry()
         self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: self.holidayCountry)
 
         self.setDaysHeader()
@@ -170,6 +171,13 @@ class CWCalendarViewController: UICollectionViewController {
             }
         }
     }
+
+    private func getCurrentCountry() -> HolidayCountry {
+        let defaults = UserDefaults.standard
+        let country = defaults.object(forKey: "Country") as? String ?? "United States"
+
+        return HolidayCountry(rawValue: country)!
+    }
     
     // MARK: @IBAction
     @IBAction func scrollToTodayButton() {
@@ -178,6 +186,7 @@ class CWCalendarViewController: UICollectionViewController {
             let util = CWFiscalDateUtilities()
             self.year = util.fiscalYear(for: todaysDate)
             let year = self.year.periods[0].dates[0].year
+            self.holidayCountry = self.getCurrentCountry()
             self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
             self.collectionView!.reloadData()
             self.navigationItem.title = "FY \(year)"
@@ -191,6 +200,7 @@ class CWCalendarViewController: UICollectionViewController {
         let prevFiscalYear = util.previousYear(for: self.year)
         self.year = prevFiscalYear
         let year = self.year.periods[0].dates[0].year
+        self.holidayCountry = self.getCurrentCountry()
         self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"
@@ -208,6 +218,7 @@ class CWCalendarViewController: UICollectionViewController {
         let nextFiscalYear = util.nextYear(for: self.year)
         self.year = nextFiscalYear
         let year = self.year.periods[0].dates[0].year
+        self.holidayCountry = self.getCurrentCountry()
         self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
         self.collectionView!.reloadData()
         self.navigationItem.title = "FY \(year)"
@@ -219,7 +230,10 @@ class CWCalendarViewController: UICollectionViewController {
     }
 
     @IBAction func unwindToCalendar(segue: UIStoryboardSegue) {
-
+        self.holidayCountry = self.getCurrentCountry()
+        let year = self.year.periods[0].dates[0].year
+        self.holidays = CWHolidays(fiscalYear: year, country: self.holidayCountry)
+        self.collectionView!.reloadData()
     }
     
     func scrollTo(_ item:Int, section:Int) {

@@ -21,7 +21,7 @@ class CWDayDetailViewController: UIViewController {
         if let h = self.holiday {
             self.holidayName.text = h.name
         } else {
-            self.holidayName.text = "Not Avalible"
+            self.holidayName.text = "Not Available"
         }
     }
     
