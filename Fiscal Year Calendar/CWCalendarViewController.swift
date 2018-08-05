@@ -31,27 +31,8 @@ class CWCalendarViewController: UICollectionViewController {
         let today = Date()
         self.todayNormalizedDate = util.getNormalizedDate(today)
         self.holidays = CWHolidays(fiscalYear: todayFiscalDate.year, country: self.holidayCountry)
-        
-        // Set up the days of the week header.
-        if !self.hasDayHeader {
-            self.collectionView?.contentInset.top = 44
-            let navBarFrame = self.navigationController!.navigationBar.frame
-            var headerOffset = 0.0
-            if UIDevice().userInterfaceIdiom == .phone {
-                switch UIScreen.main.nativeBounds.height {
-                case 2436:
-                    headerOffset = 43.9
-                default:
-                    headerOffset = 19.9
-                }
-            } else {
-                headerOffset = 19.9
-            }
-            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - CGFloat(headerOffset)), width: CGFloat(self.view.frame.size.width) , height: 44))
-            daysHeaderView.blurTintColor = UIColor.white
-            self.navigationController?.navigationBar.addSubview(daysHeaderView)
-            self.hasDayHeader = true
-        }
+
+        self.setDaysHeader()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,26 +44,13 @@ class CWCalendarViewController: UICollectionViewController {
             self.scrollTo(self.todayFiscalDate.day - 1, section: self.todayFiscalDate.period - 1)
             self.firstView = false
         }
-        
-        if !self.hasDayHeader {
-            self.collectionView?.contentInset.top = 44
-            let navBarFrame = self.navigationController!.navigationBar.frame
-            var headerOffset = 0.0
-            if UIDevice().userInterfaceIdiom == .phone {
-                switch UIScreen.main.nativeBounds.height {
-                case 2436:
-                    headerOffset = 43.9
-                default:
-                    headerOffset = 19.9
-                }
-            } else {
-                headerOffset = 19.9
-            }
-            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - CGFloat(headerOffset)), width: CGFloat(self.view.frame.size.width) , height: 44))
-            daysHeaderView.blurTintColor = UIColor.white
-            self.navigationController?.navigationBar.addSubview(daysHeaderView)
-            self.hasDayHeader = true
-        }
+
+        self.setDaysHeader()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeDaysHeader()
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,6 +135,41 @@ class CWCalendarViewController: UICollectionViewController {
         self.todayNormalizedDate = util.getNormalizedDate(today)
         self.collectionView!.reloadData()
     }
+
+    private func getHeaderOffset() -> Float {
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 2436:
+                return 43.9
+            default:
+                return 19.9
+            }
+        } else {
+            return 19.9
+        }
+    }
+
+    private func setDaysHeader() {
+        if !self.hasDayHeader {
+            self.collectionView?.contentInset.top = 44
+            let navBarFrame = self.navigationController!.navigationBar.frame
+            let headerOffset = self.getHeaderOffset()
+            let daysHeaderView = CWDaysHeaderView(frame: CGRect(x: 0, y: CGFloat(navBarFrame.maxY - CGFloat(headerOffset)), width: CGFloat(self.view.frame.size.width) , height: 44))
+            daysHeaderView.blurTintColor = UIColor.white
+            daysHeaderView.tag = 100
+            self.navigationController?.navigationBar.addSubview(daysHeaderView)
+            self.hasDayHeader = true
+        }
+    }
+
+    private func removeDaysHeader() {
+        if self.hasDayHeader {
+            if let daysHeaderView = self.navigationController?.navigationBar.viewWithTag(100) {
+                daysHeaderView.removeFromSuperview()
+                self.hasDayHeader = false
+            }
+        }
+    }
     
     // MARK: @IBAction
     @IBAction func scrollToTodayButton() {
@@ -214,6 +217,10 @@ class CWCalendarViewController: UICollectionViewController {
             self.prevButton.isEnabled = true
         }
     }
+
+    @IBAction func unwindToCalendar(segue: UIStoryboardSegue) {
+
+    }
     
     func scrollTo(_ item:Int, section:Int) {
         let indexPath = IndexPath(item: item, section: section)
@@ -247,13 +254,6 @@ extension CWCalendarViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDayDetail" {
-            for v in (self.navigationController?.navigationBar.subviews)! {
-                if v is CWDaysHeaderView {
-                    v.removeFromSuperview()
-                    self.hasDayHeader = false
-                    break
-                }
-            }
             if let controller = segue.destination as? CWDayDetailViewController {
                 if let cell = sender as? CWDayViewCell {
                     if let holiday = cell.holiday {

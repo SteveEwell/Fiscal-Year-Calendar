@@ -19,7 +19,7 @@ class CWDaysHeaderView : UIView {
         }
     }
     
-    lazy var toolbar:UIToolbar = {
+    lazy var toolbar: UIToolbar = {
         self.clipsToBounds = false
         
         let toolbar = UIToolbar(frame: self.bounds)

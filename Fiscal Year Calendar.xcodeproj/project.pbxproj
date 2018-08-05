@@ -62,7 +62,9 @@
 		6E30E1651F23D13100F9BBCA /* Fiscal Date Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6E30E1581F23D13100F9BBCA /* Fiscal Date Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6E5D0A7E1ED08350001B3C74 /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5D0A7D1ED08350001B3C74 /* ClassExtensions.swift */; };
 		6E6270A71ED9DDB200DAE00D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6270A61ED9DDB200DAE00D /* Utilities.swift */; };
+		6E6C68652117636700CAB06E /* CWSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6C68642117636700CAB06E /* CWSettingsViewController.swift */; };
 		6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */; };
+		CA043F01B70DEF2D01AA8427 /* CWSelectCountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA04393287C4AC8F9A376780 /* CWSelectCountryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,7 +183,9 @@
 		6E30E1621F23D13100F9BBCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E5D0A7D1ED08350001B3C74 /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassExtensions.swift; sourceTree = "<group>"; };
 		6E6270A61ED9DDB200DAE00D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		6E6C68642117636700CAB06E /* CWSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWSettingsViewController.swift; sourceTree = "<group>"; };
 		6ECEF3961EDC7360009B3C4F /* CWDayDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWDayDetailViewController.swift; sourceTree = "<group>"; };
+		CA04393287C4AC8F9A376780 /* CWSelectCountryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWSelectCountryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,8 @@
 				6E10BE821EBF702D00F51F59 /* CWDaysHeaderView.swift */,
 				6E10BE831EBF702D00F51F59 /* CWDayViewCell.swift */,
 				6E10BE841EBF702D00F51F59 /* CWPeriodSectionHeader.swift */,
+				6E6C68642117636700CAB06E /* CWSettingsViewController.swift */,
+				CA04393287C4AC8F9A376780 /* CWSelectCountryTableViewController.swift */,
 				6E6270A61ED9DDB200DAE00D /* Utilities.swift */,
 				6E10BE741EBF6F0F00F51F59 /* Main.storyboard */,
 				6E10BE161EBF69DC00F51F59 /* Assets.xcassets */,
@@ -621,8 +627,10 @@
 				6ECEF3971EDC7360009B3C4F /* CWDayDetailViewController.swift in Sources */,
 				6E20DDB0210CC5CD00ACE73F /* CWFiscalDateUtilities.swift in Sources */,
 				6E20DDC4210CC5CD00ACE73F /* CWHoliday.swift in Sources */,
+				6E6C68652117636700CAB06E /* CWSettingsViewController.swift in Sources */,
 				6E10BE101EBF69DC00F51F59 /* AppDelegate.swift in Sources */,
 				6E10BE881EBF702D00F51F59 /* CWPeriodSectionHeader.swift in Sources */,
+				CA043F01B70DEF2D01AA8427 /* CWSelectCountryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

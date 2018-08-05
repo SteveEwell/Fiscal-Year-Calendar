@@ -17,19 +17,20 @@ enum DayOfMonth {
     case last
 }
 
-enum HolidayCountry {
-    case US // United States
-    case CA // Canada
-    case PR // Puerto Rico
-    case IS // Iceland
-    case GB // United Kingdom
-    case MX // Mexico
-    case FR // France
-    case TW // Taiwan
-    case JP // Japan
-    case KR // Korea
-    case AU // Australia
-    case ES // Spain
+enum HolidayCountry: String {
+    case US = "United States"
+    case CA = "Canada"
+    case PR = "Puerto Rico"
+    case IS = "Iceland"
+    case GB = "United Kingdom"
+    case MX = "Mexico"
+    case FR = "France"
+    case TW = "Taiwan"
+    case JP = "Japan"
+    case KR = "Korea"
+    case AU = "Australia"
+    case ES = "Spain"
+    case CN = "China"
 }
 
 struct CWHoliday {
