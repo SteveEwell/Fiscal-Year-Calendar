@@ -82,19 +82,22 @@ class CWHolidays {
             self.holidays = []
         }
     }
-    
+
+    // US, CA
     private func laborDay(year: Int, country: String) {
         let date = self.xDayOfMonthHoliday(year: year, month: 9, weekday: 2, dayOfMonth: .first)
         let holiday = CWHoliday(date: date, country: country, name: "Labor Day", open: false)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func halloween(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 10, day: 31)
         let holiday = CWHoliday(date: date, country: country, name: "Halloween", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func thanksgiving(year: Int, country: String) {
         if country == "Canada" {
             let date = self.xDayOfMonthHoliday(year: year, month: 10, weekday: 2, dayOfMonth: .second)
@@ -106,79 +109,92 @@ class CWHolidays {
             self.holidays.append(holiday)
         }
     }
-    
+
+    // US, CA
     private func christmas(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 12, day: 25)
         let holiday = CWHoliday(date: date, country: country, name: "Christmas", open: false)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func newYearsDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 1, day: 1)
         let holiday = CWHoliday(date: date, country: country, name: "New Years Day", open: false)
         self.holidays.append(holiday)
     }
-    
+
+    // US
     private func  martinLutherKingJr(year: Int) {
         let date = self.xDayOfMonthHoliday(year: year, month: 1, weekday: 2, dayOfMonth: .third)
         let holiday = CWHoliday(date: date, country: "United States", name: "Martin Luther King Jr. Day", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func valentinesDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 2, day: 14)
         let holiday = CWHoliday(date: date, country: country, name: "Valentine's Day", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func goodFriday(year: Int, country: String) {
         let date = self.calcGoodFriday(year: year)
         let holiday = CWHoliday(date: date, country: country, name: "Good Friday", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US, CA
     private func easter(year: Int, country: String) {
         let date = self.calcEaster(year: year)
         let holiday = CWHoliday(date: date, country: country, name: "Easter", open: false)
         self.holidays.append(holiday)
     }
-    
+
+    // US
     private func mothersDay(year: Int, country: String) {
         let date = self.xDayOfMonthHoliday(year: year, month: 5, weekday: 1, dayOfMonth: .second)
         let holiday = CWHoliday(date: date, country: country, name: "Mother's Day", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US
     private func memorialDay(year: Int, country: String) {
         let date = self.xDayOfMonthHoliday(year: year, month: 5, weekday: 2, dayOfMonth: .last)
         let holiday = CWHoliday(date: date, country: country, name: "Memorial Day", open: false)
         self.holidays.append(holiday)
     }
-    
+
+    // US
     private func fathersDay(year: Int, country: String) {
         let date = self.xDayOfMonthHoliday(year: year, month: 6, weekday: 1, dayOfMonth: .third)
         let holiday = CWHoliday(date: date, country: country, name: "Father's Day", open: true)
         self.holidays.append(holiday)
     }
-    
+
+    // US
     private func independenceDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 7, day: 4)
         let holiday = CWHoliday(date: date, country: country, name: "Independence Day", open: false)
         self.holidays.append(holiday)
     }
 
+    // CA
     private func remembranceDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 11, day: 11)
         let holiday = CWHoliday(date: date, country: country, name: "Remembrance Day", open: true)
         self.holidays.append(holiday)
     }
 
+    // CA
     private func boxingDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 12, day: 26)
         let holiday = CWHoliday(date: date, country: country, name: "Boxing Day", open: true)
         self.holidays.append(holiday)
     }
 
+    // CA
     private func familyDay(year: Int, country: String) {
         let date1 = self.xDayOfMonthHoliday(year: year, month: 2, weekday: 2, dayOfMonth: .second)
         let holiday1 = CWHoliday(date: date1, country: country, name: "Family Day (BC)", open: false)
@@ -189,24 +205,34 @@ class CWHolidays {
         self.holidays.append(holiday2)
     }
 
+    // CA
     private func victoriaDay(year: Int, country: String) {
         let date = self.calcVictoriaDay(year: year)
         let holiday = CWHoliday(date: date, country: country, name: "Victoria Day", open: false)
         self.holidays.append(holiday)
     }
 
+    // CA
     private func stJeanBaptisteDay(year: Int, country: String) {
         let date = self.dayOfMonthHoliday(year: year, month: 12, day: 26)
         let holiday = CWHoliday(date: date, country: country, name: "St. Jean Baptiste", open: true)
         self.holidays.append(holiday)
     }
 
+    // CA
     private func canadaDay(year: Int, country: String) {
-        let date = self.calcCanadaDay(year: year)
+        let date = self.dayOfMonthHoliday(year: year, month: 7, day: 1)
         let holiday = CWHoliday(date: date, country: country, name: "Canada Day", open: false)
         self.holidays.append(holiday)
+
+        if (self.canadaDayObservedMonday(year: year)) {
+            let dateObserved = self.dayOfMonthHoliday(year: year, month: 7, day: 2)
+            let holidayObserved = CWHoliday(date: dateObserved, country: country, name: "Canada Day (Observed)", open: false)
+            self.holidays.append(holidayObserved)
+        }
     }
-    
+
+    // CA
     private func civicDay(year: Int, country: String) {
         let date = self.xDayOfMonthHoliday(year: year, month: 8, weekday: 2, dayOfMonth: .first)
         let holiday = CWHoliday(date: date, country: country, name: "Civic Day", open: true)
@@ -304,16 +330,16 @@ class CWHolidays {
         return days.last!
     }
 
-    private func calcCanadaDay(year: Int) -> Date {
+    private func canadaDayObservedMonday(year: Int) -> Bool {
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
-        var date = self.dayOfMonthHoliday(year: year, month: 7, day: 1)
+        let date = self.dayOfMonthHoliday(year: year, month: 7, day: 1)
         let comp = cal.dateComponents([.weekday], from: date)
 
         if comp.weekday == 1 {
-            date = self.dayOfMonthHoliday(year: year, month: 7, day: 2)
+            return true
         }
 
-        return date
+        return false
     }
 
 }

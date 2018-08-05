@@ -22,20 +22,6 @@ private struct FiscalUnit {
     let remainderAsDays: Double
 }
 
-private class AdjustedUnits {
-    var year: Int
-    var period: Int
-    var week: Int
-    var yearsDiff: Int
-    
-    init(year: Int, period: Int, week: Int, yearsDiff: Int) {
-        self.year = year
-        self.period = period
-        self.week = week
-        self.yearsDiff = yearsDiff
-    }
-}
-
 /// The fiscal date for a given calendar date.
 public struct CWFiscalDate: FiscalDate {
     /// Calendar date that the fiscal date is derived from.
@@ -56,30 +42,32 @@ public struct CWFiscalDate: FiscalDate {
     /// Day in the week starting on Monday (1 - 7).
     var day: Int
 
-    /// Fiscal year as a String value.
+    /// The fiscal year as a String value.
     var yearAsString: String {
         return "\(year)"
     }
 
-    /// Fiscal quarter as a String value.
+    /// The fiscal quarter as a String value.
     var quarterAsString: String {
         return "\(quarter)"
     }
 
-    /// Fiscal period as a String value.
+    /// The fiscal period as a String value.
     var periodAsString: String {
         return "\(period)"
     }
 
-    /// Period week as a String value.
+    /// The fiscal week as a String value.
     var weekAsString: String {
         return "\(week)"
     }
 
-    /// Day of week as a String value.
+    /// The fiscal day as a String value.
     var dayAsString: String {
         return "\(day)"
     }
+
+    private var yearsDiff: Int
 
     /**
     Initializes a new fiscal date based on the current date.
@@ -93,6 +81,7 @@ public struct CWFiscalDate: FiscalDate {
         self.period = 0
         self.week = 0
         self.day = 0
+        self.yearsDiff = 0
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = cal.dateComponents([.day , .month, .year ], from: self.date)
@@ -115,6 +104,7 @@ public struct CWFiscalDate: FiscalDate {
         self.period = 0
         self.week = 0
         self.day = 0
+        self.yearsDiff = 0
         
         let cal = Calendar(identifier: Calendar.Identifier.gregorian)
         let components = cal.dateComponents([.day , .month, .year ], from: calendarDate)
@@ -165,58 +155,56 @@ public struct CWFiscalDate: FiscalDate {
         return FiscalUnit(current: week, remainderAsDays: weeksRemainderAsDays)
     }
     
-    private func isInFithWeek(unit: AdjustedUnits) -> Bool {
-        if (unit.week <= 0 && unit.period == 1 && unit.yearsDiff == 1) {
+    private func isInFifthWeek() -> Bool {
+        if (self.week <= 0 && self.period == 1 && self.yearsDiff == 1) {
             return true
         }
         
         return false
     }
     
-    private func fithWeekUnit(unit: AdjustedUnits) -> AdjustedUnits {
-        unit.year -= 1
-        unit.yearsDiff -= 1
-        unit.period = 13
-        unit.week = 5
-        
-        return unit
+    private mutating func setFifthWeek() {
+        self.year -= 1
+        self.yearsDiff -= 1
+        self.period = 13
+        self.week = 5
     }
     
-    private func adjustDateOffset(unit: inout AdjustedUnits) {
+    private mutating func adjustDateOffset() {
         
         // Set to last week of the period
-        if (unit.week <= 0) {
-            unit.period -= 1
-            unit.week = 4
+        if (self.week <= 0) {
+            self.period -= 1
+            self.week = 4
         }
         
         // set to the last period of the year
-        if (unit.period <= 0) {
-            unit.year -= 1
-            unit.period = 13
-            unit.yearsDiff -= 1
+        if (self.period <= 0) {
+            self.year -= 1
+            self.period = 13
+            self.yearsDiff -= 1
         }
     }
     
-    private func extraWeekAdustment(year: Int, period: Int, week: Int) -> AdjustedUnits {
+    private mutating func extraWeekAdjustment() {
         let baseYear = 1999
-        var adjUnit = AdjustedUnits(year: year, period: period, week: week, yearsDiff: year - baseYear)
+        self.yearsDiff = self.year - baseYear
         
-        if (adjUnit.year > baseYear) {
-            while (adjUnit.yearsDiff > 0) {
-                adjUnit.week -= 1
+        if (self.year > baseYear) {
+            while (self.yearsDiff > 0) {
+                self.week -= 1
                 
-                if (self.isInFithWeek(unit: adjUnit)) {
-                    return self.fithWeekUnit(unit: adjUnit)
+                if (self.isInFifthWeek()) {
+                    self.setFifthWeek()
+                    break
                 } else {
-                    self.adjustDateOffset(unit: &adjUnit)
+                    self.adjustDateOffset()
                 }
                 
-                adjUnit.yearsDiff -= 6 //  base extra week interval
+                self.yearsDiff -= 6 //  base extra week interval
             }
         }
-        
-        return adjUnit
+
     }
 
     /**
@@ -228,11 +216,13 @@ public struct CWFiscalDate: FiscalDate {
         let year = self.getYearUnit(calendarDate: calendarDate)
         let period = self.getPeriodUnit(year: year)
         let week = self.getWeekUnit(period: period)
-        let adustedDate = self.extraWeekAdustment(year: year.current, period: period.current, week: week.current)
-        
-        self.year = adustedDate.year
-        self.period = adustedDate.period
-        self.week = adustedDate.week
+
+        self.year = year.current
+        self.period = period.current
+        self.week = week.current
+
+        self.extraWeekAdjustment()
+
         self.day = Int(round(week.remainderAsDays)) + 1
         self.date = calendarDate
         self.setQuarter()
